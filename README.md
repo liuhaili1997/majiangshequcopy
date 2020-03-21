@@ -12,3 +12,7 @@ https://www.jetbrains.com/idea/download/#section=windows
 https://maven.apache.org    
 https://github.com/liuhaili1997     
 https://git-scm.com
+
+##知识：
+cookie：就是一张银行卡，可以进入网页
+session：对应银行中的账户

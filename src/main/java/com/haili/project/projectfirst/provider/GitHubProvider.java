@@ -7,6 +7,7 @@ import okhttp3.*;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 提供的请求访问，对code access_token，state等进行判断
@@ -20,7 +21,10 @@ import java.io.IOException;
 public class GitHubProvider {
     public String getAccessToken(AccessTokenDto accessTokenDto) {
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
-        OkHttpClient client = new OkHttpClient();
+        //resolve java.net.SocketTimeoutException: timeout 增加到60s
+        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(60000, TimeUnit.MILLISECONDS)
+                .readTimeout(60000, TimeUnit.MILLISECONDS)
+                .build();
 
         RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDto));
         Request request = new Request.Builder()
