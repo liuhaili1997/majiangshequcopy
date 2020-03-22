@@ -2,6 +2,8 @@ package com.haili.project.projectfirst.controller;
 
 import com.haili.project.projectfirst.dto.AccessTokenDto;
 import com.haili.project.projectfirst.dto.GithubUser;
+import com.haili.project.projectfirst.mapper.UserMapper;
+import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.provider.GitHubProvider;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
+import java.util.UUID;
 
 /**
  * 这个controller不仅仅是接收url解析cod，还包括调用access_token,访问github，判断是否正确，返回真正的access_token
@@ -35,6 +37,9 @@ public class AuthorizeController {
     @Value("${github.redirect.uri}")
     private String redirectUri;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
@@ -51,10 +56,17 @@ public class AuthorizeController {
             accessTokenDto.setState(state);
         }
         String accessToken = gitHubProvider.getAccessToken(accessTokenDto);
-        GithubUser user = gitHubProvider.getUser(accessToken);
-        if (null != user) {
-            request.getSession().setAttribute("user", user);
+        GithubUser githubUser = gitHubProvider.getUser(accessToken);
+        if (null != githubUser) {
+            User user = new User();
+            user.setToken(UUID.randomUUID().toString());
+            user.setName(githubUser.getName());
+            user.setAccountId(String.valueOf(githubUser.getId()));
+            user.setGmtCreate(System.currentTimeMillis());
+            user.setGmtModified(user.getGmtCreate());
+            userMapper.insert(user);
             //如果cookie不为空，登录成功，写cookie和session   redirect:渲染页面去除地址
+            request.getSession().setAttribute("githubUser", githubUser);
             return "redirect:/";
         } else {
             //登录失败
