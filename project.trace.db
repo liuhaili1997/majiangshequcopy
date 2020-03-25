@@ -1,3 +1,0 @@
-2020-03-22 11:21:58 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
-Insert into user (name,account_id,token,gmt_create,gmt_modified) values (?,?,?,?,?) [42102-200]

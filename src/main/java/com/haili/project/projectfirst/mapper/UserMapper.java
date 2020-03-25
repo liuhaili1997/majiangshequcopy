@@ -3,6 +3,8 @@ package com.haili.project.projectfirst.mapper;
 import com.haili.project.projectfirst.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * 用于用户的查询和删除
@@ -18,4 +20,13 @@ public interface UserMapper {
      */
     @Insert("Insert into user (account_id,name,token,gmt_create,gmt_modified) values (#{accountId},#{name},#{token},#{gmtCreate},#{gmtModified})")
     void insert(User user);
+
+    /**
+     * 通过token查询用户信息
+     *
+     * @param token token
+     * @return 用户信息
+     */
+    @Select("select * from user where token = #{token}")
+    User findByToken(@Param("token") String token);
 }
