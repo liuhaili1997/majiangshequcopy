@@ -34,4 +34,9 @@ public class User {
      * 更新时间
      */
     private Long gmtModified;
+
+    /**
+     * 图片地址
+     */
+    private String avatar;
 }

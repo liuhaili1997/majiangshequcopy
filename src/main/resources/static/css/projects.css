@@ -1,0 +1,38 @@
+body{
+    background-color: #efefef;
+}
+
+.main {
+    background-color: white;
+    margin: 30px;
+}
+
+.btn-publish {
+    float: right;
+    margin-bottom: 15px;
+    margin-right: 15px;
+}
+
+.form-tag {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-red-info {
+    float: left;
+}
+
+.red-info-height {
+    height: 36px;
+}
+
+.user-img {
+    width: 42px;
+    height: 42px;
+}
+
+.view-comment-count {
+    font-size: 12px;
+    font-weight: normal;
+    color: #999999;
+}

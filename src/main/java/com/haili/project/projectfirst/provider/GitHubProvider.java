@@ -1,8 +1,10 @@
 package com.haili.project.projectfirst.provider;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.haili.project.projectfirst.dto.AccessTokenDto;
 import com.haili.project.projectfirst.dto.GithubUser;
+import lombok.val;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -25,12 +27,11 @@ public class GitHubProvider {
         OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(60000, TimeUnit.MILLISECONDS)
                 .readTimeout(60000, TimeUnit.MILLISECONDS)
                 .build();
-
-        RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDto));
-        Request request = new Request.Builder()
-                .url("https://github.com/login/oauth/access_token")
-                .post(body)
-                .build();
+        //建议使用get获取token，post请求无法找到页面，出现404 直接这样使用get是成功的
+        String url = new StringBuilder("https://github.com/login/oauth/access_token?client_id=").append(accessTokenDto.getClientId())
+                .append("&client_secret=").append(accessTokenDto.getClientSecret()).append("&code=").append(accessTokenDto.getCode())
+                .append("&redirect_uri=").append(accessTokenDto.getRedirectUri()).toString();
+        Request request = new Request.Builder().url(url).build();
         try (Response response = client.newCall(request).execute()) {
             String string = response.body().string();
             String token = string.split("&")[0].split("=")[1];
@@ -42,7 +43,9 @@ public class GitHubProvider {
     }
 
     public GithubUser getUser(String accessToken) {
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(60000, TimeUnit.MILLISECONDS)
+                .readTimeout(60000, TimeUnit.MILLISECONDS)
+                .build();
         Request request = new Request.Builder()
                 .url("https://api.github.com/user?access_token="+accessToken)
                 .build();
