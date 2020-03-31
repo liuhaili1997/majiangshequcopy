@@ -1,14 +1,17 @@
 package com.haili.project.projectfirst.model;
 
 import lombok.Data;
-
+/**
+ *
+ * @author Created by hailitortoise on 2020-03-26
+ */
 @Data
 public class User {
 
     /**
      * id
      */
-    private int id;
+    private Integer id;
 
     /**
      * 用户姓名

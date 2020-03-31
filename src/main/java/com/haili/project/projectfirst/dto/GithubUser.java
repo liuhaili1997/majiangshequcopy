@@ -24,12 +24,8 @@ public class GithubUser {
      */
     private String bio;
 
-    @Override
-    public String toString() {
-        return "GithubUser{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", bio='" + bio + '\'' +
-                '}';
-    }
+    /**
+     * 头像地址
+     */
+    private String avatarUrl;
 }

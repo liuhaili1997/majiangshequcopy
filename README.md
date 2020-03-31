@@ -14,10 +14,28 @@
 [git](https://git-scm.com)
 [flywaydb](https://flywaydb.org/getstarted/firststeps/maven)
 
+##chrome插件  
+===========
+* LiveReload
+> 自动刷新页面
+* One Tab
+> 收集当前页面，方便下一次直接打开
+* Octotree
+> github中的代码可以通过这个直接打开，不用直接clone下来看
+* Table of content sidebar
+> 获取当前页面的大纲，方便跳转和查询
+* post man
+> 项目接口的自测
+
+[ctotree](https://www.octotree.io/)   
+[Table of content sidebar](https://chrome.google.com/webstore/detail/table-of-contents-sidebar/ohohkfheangmbedkgechjkmbepeikkej)    
+[One Tab](https://chrome.google.com/webstore/detail/chphlpgkkbolifaimnlloiipkdnihall)    
+[Live Reload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei/related)  
+[Postman](https://chrome.google.com/webstore/detail/coohjcphdfgbiolnekdpbcijmhambjff)
+
 ```bash
 mvn flyway:migrate
 ```
-
 
 ##知识：
 cookie：就是一张银行卡，可以进入网页
@@ -145,4 +163,39 @@ ALTER TABLE USER ADD bio VARCHAR(256) NULL;
             DROP INDEX 索引名    -- 删除索引
             DROP FOREIGN KEY 外键    -- 删除外键
 ```
+##Mapper 中的配置信息
+```batch
+<!-- mapper接口代理实现编写规则：
+1.映射文件中namespace要等于接口的全路径
+2.通过sql语句实现数据库的操作
+3.映射文件中sql语句id要等与于接口的方法名称
+4.映射文件中传入参数类型要等于接口方法的传入参数类型
+5.映射文件中返回结果集类型要等于接口方法的返回值类型
 
+/* collection属性：对谁进行遍历，在这里是对ids进行遍历
+   item属性：遍历的结果放到哪里，这里将ids的遍历结果放到id中。
+   open属性：从何处开始进行遍历
+   close属性：从何处结束遍历
+   separator属性：分隔符是什么，这里的分隔符为‘，’,通过‘，’将id分离开来。
+   占位符只需要写#{id}即可，花括号里面的放的为我们将遍历结果放置的地方，也就是id。
+
+ parameterType="com.huida.vo.QueryVo" 接受的是一个实体类，
+ resultType="com.huida.po.User"返回值用什么接受
+ -->
+```
+```热部署，不需要重复的启动项目来查看修改的地方
+ <!--热部署插件-->
+ <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-devtools</artifactId>
+     <scope>runtime</scope>
+     <optional>true</optional>
+ </dependency>
+设置：settings->build->compile->Build project automatically  自动编译
+ctrl+shift+alt+/->registry  compiler.automake.allow.when.app.running 选中这个 就完成了热部署
+
+```
+
+#CSDN 文档学习
+[hashMap 的初始化容量 以及hash函数讲解](https://blog.csdn.net/Anenan/article/details/91490390)      
+[java8 List转Map的使用技巧](https://blog.csdn.net/Hern_16/article/details/105118006?fps=1&locationNum=2)      

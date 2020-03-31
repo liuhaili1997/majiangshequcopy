@@ -73,21 +73,56 @@
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>发现</h2>
             <hr/>
-            <div class="media">
+
+            <div class="media" th:each="question:${questionList.questionDtoList}">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object img-circle user-img" src="https://c-ssl.duitang.com/uploads/item/201511/21/20151121171107_zMZcy.thumb.1000_0.jpeg" alt="...">
+                        <img class="media-object img-circle user-img"
+                             th:src="${question.avatarUrl}">
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">快速上手springboot开发</h4>
-                    点击进入，学习深层次架构。。。<br>
-                    <span class="view-comment-count">2个问题·31次浏览·1小时前</span>
+                    <h4 class="media-heading" th:text="${question.title}"></h4>
+                    <span th:text="${question.description}"></span><br>
+                    <span class="view-comment-count">
+                        <span th:text="${question.commentCount}"></span>个问题·
+                        <span th:text="${question.viewCount}"></span>次浏览·
+                        <span th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
+                    </span>
                 </div>
+                <hr/>
             </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li th:if="${questionList.showFirstPage}">
+                        <a href="/?page=1" aria-label="Previous">
+                            <span aria-hidden="true">&lt;&lt;</span>
+                        </a>
+                    </li>
+                    <li th:if="${questionList.showPrevious}">
+                        <a th:href="@{/(page=${questionList.currentPage - 1})}" aria-label="Previous">
+                            <span aria-hidden="true">&lt;</span>
+                        </a>
+                    </li>
+                    <li th:each="page : ${questionList.pages}"
+                        th:class="${questionList.currentPage == page}?'active':''">
+                        <a th:href="@{/(page=${page})}" th:text="${page}"></a>
+                    </li>
+                    <li th:if="${questionList.showNext}">
+                        <a th:href="@{/(page=${questionList.currentPage + 1})}" aria-label="Previous">
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                    </li>
+                    <li th:if="${questionList.showEndPage}">
+                        <a th:href="@{/(page=${questionList.totalPage})}" aria-label="Previous">
+                            <span aria-hidden="true">&gt;&gt;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>热门知识点</h3>
+            <h3>热门</h3>
         </div>
     </div>
 </div>

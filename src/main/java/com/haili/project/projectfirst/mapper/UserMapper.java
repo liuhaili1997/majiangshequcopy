@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 /**
  * 用于用户的查询和删除
  * @author Created by hailitortoise on 2020-03-21
@@ -29,4 +31,11 @@ public interface UserMapper {
      */
     @Select("select * from user where token = #{token}")
     User findByToken(@Param("token") String token);
+
+    /**
+     * 通过id集合获取用户信息
+     * @param idList id集合
+     * @return 用户集合信息
+     */
+    List<User> findByIdList(@Param("idList") List<Integer> idList);
 }

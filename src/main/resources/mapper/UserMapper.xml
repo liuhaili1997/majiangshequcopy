@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haili.project.projectfirst.mapper.UserMapper">
+    <select id="findByIdList" resultType="com.haili.project.projectfirst.model.User">
+        select * from USER
+        where 1 = 1
+        and id in
+        <if test="null != idList and idList.size() > 0">
+            <foreach collection="idList" item="id" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </if>
+    </select>
+</mapper>

@@ -93,7 +93,10 @@
                 </div>
                 <div class="container-fluid main">
                     <div class="row ">
-                        <div class="alert alert-danger col-lg-9 col-md-12 col-sm-12 col-xs-12 btn-red-info btn red-info-height" th:text="${erro}" th:if="erro != null"></div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                            <div class="alert alert-danger btn-red-info btn red-info-height col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                                 th:text="${erro}" th:if="${erro != null}"></div>
+                        </div>
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 btn-red-info">
                             <button type="submit" class="btn btn-success btn-publish">发布</button>
                         </div>
