@@ -25,9 +25,6 @@ public class PublishController {
     @Autowired
     private QuestionMapper questionMapper;
 
-    @Autowired
-    private UserMapper userMapper;
-
     /**如果是get请求：跳转页面 如果是post请求：处理数据*/
     @GetMapping("/publish")
     public String publish() {
@@ -55,18 +52,8 @@ public class PublishController {
             model.addAttribute("erro", "请您最少写一个标签，方便查找");
             return "publish";
         }
-        User user = null;
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("token")) {
-                String token = cookie.getValue();
-                user = userMapper.findByToken(token);
-                if (null != user) {
-                    request.getSession().setAttribute("user", user);
-                }
-                break;
-            }
-        }
+        //获取session内部的user，判断是否存在，才有权限
+        User user = (User) request.getSession().getAttribute("user");
         if (null == user) {
             model.addAttribute("erro", "用户未登录");
             return "publish";
@@ -76,7 +63,7 @@ public class PublishController {
         question.setDescription(description);
         question.setTag(tag);
         //个人觉得这里可以换成account_id
-        question.setCreator(user.getId());
+        question.setCreator(user.getAccountId());
         Long currentTime = System.currentTimeMillis();
         question.setGmtCreate(currentTime);
         question.setGmtModified(currentTime);

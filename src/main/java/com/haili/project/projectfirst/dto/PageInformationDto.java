@@ -79,12 +79,14 @@ public class PageInformationDto {
         switch (currentPage) {
             case 1:
                 for (int i = 1; i <=2 ; i++) {
-                    pages.add(currentPage + i);
+                    if (pages.size() < totalPage) {
+                        pages.add(currentPage + i);
+                    }
                 }
                 break;
             default:
                 for (int i = 1; i <= 3; i++) {
-                    if (currentPage - i >= currentPage - 1 || pages.size() <= 2) {
+                    if (currentPage - i >= currentPage - 1 && pages.size() <= 2) {
                         pages.add(0, currentPage - i);
                     }
                     if (currentPage + i <= totalPage && pages.size() < 3) {

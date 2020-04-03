@@ -5,7 +5,8 @@
 [与前端交互的功能实现](https://spring.io/guides/gs/serving-web-content/)  
 [对照的网站--es社区](https://elasticsearch.cn/explore)
 [BootStrap文档](https://v3.bootcss.com/getting-started/#download)
-[OAuth app](https://github.com/settings/applications/1246568)
+[OAuth app](https://github.com/settings/applications/1246568)  
+[spring MVC](https://docs.spring.io/spring/docs/5.0.3.RELEASE/spring-framework-reference/web.html#spring-web)
 
 ## 工具
 [jetbrains](https://www.jetbrains.com/idea/download/#section=windows)
@@ -194,6 +195,43 @@ ALTER TABLE USER ADD bio VARCHAR(256) NULL;
 设置：settings->build->compile->Build project automatically  自动编译
 ctrl+shift+alt+/->registry  compiler.automake.allow.when.app.running 选中这个 就完成了热部署
 
+```
+```html
+<!--配置当前页的路径-->
+<a th:href="@{'/profile/' + ${section}(page=${questionList.totalPage})}" aria-label="Previous">
+    <span aria-hidden="true">&gt;&gt;</span>
+</a>
+<!--配置当前根目录下面的路径-->
+<a th:href="@{/(page=${page})}" th:text="${page}"></a>
+```
+#拦截器
+####对应方法表示的含义：
+* preHandle(..) — before the actual handler is executed  
+>在实际请求之前进行处理的方法，
+>return 一个Boolean的值，true表示程序继续，false 表示当前程序中断了
+>
+* postHandle(..) — after the handler is executed
+>在程序处理结束之前用
+* afterCompletion(..) — after the complete request has finished
+>请求结束的时候执行
+
+
+```thymeleaf expressions  可能以后可以用到
+#加了拦截器后,配置了http://www.thymeleaf.org的动态界面都需要增加配置信息  跳转静态页面需要经过controller层才能实现跳转 (不经过静态资源报错)
+#spring.mvc.static-path-pattern= /static/**
+#用于告诉Spring Boot应该在何处查找静态资源文件,查找文件时会依赖于配置的先后顺序依次进行
+spring.resources.static-locations=classpath:/static/,classpath:/view/,classpath:/public,classpath:/resources,classpath:/META-INF/resources
+
+#thymeleaf
+spring.thymeleaf.prefix = classpath:/static/
+#开发阶段，建议关闭thymeleaf的缓存
+spring.thymeleaf.cache=false
+#使用遗留的html5以去掉对html标签的校验
+spring.thymeleaf.mode= HTML5
+spring.thymeleaf.check-template = true
+spring.thymeleaf.servlet.content-type = text/html
+spring.thymeleaf.encoding = UTF-8
+spring.thymeleaf.suffix = .html
 ```
 
 #CSDN 文档学习

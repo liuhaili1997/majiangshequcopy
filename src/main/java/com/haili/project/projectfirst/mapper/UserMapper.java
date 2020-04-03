@@ -37,5 +37,5 @@ public interface UserMapper {
      * @param idList id集合
      * @return 用户集合信息
      */
-    List<User> findByIdList(@Param("idList") List<Integer> idList);
+    List<User> findByIdList(@Param("idList") List<String> idList);
 }

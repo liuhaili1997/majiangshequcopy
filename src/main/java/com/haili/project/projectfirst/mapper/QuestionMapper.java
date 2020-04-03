@@ -39,5 +39,22 @@ public interface QuestionMapper {
     @Select("select count(1) from question")
     Integer questionTotal();
 
+    /**
+     * 查询属于当前用户写的问题
+     *
+     * @param id          id
+     * @param currentPage 当前页数
+     * @param pageSize    页尺寸
+     * @return 查询结果
+     */
+    @Select("select * from question where creator = #{id} limit #{currentPage}, #{pageSize}")
+    List<Question> listByCreator(@Param("id") String accountId, @Param("currentPage") Integer currentPage, @Param("pageSize") Integer pageSize);
 
+    /**
+     * 根据id查询相关的问题数据
+     * @param id
+     * @return
+     */
+    @Select("select count(1) from question where creator = #{id}")
+    Integer questionTotalBy(@Param("id") String id);
 }

@@ -6,7 +6,7 @@
     <select id="findByIdList" resultType="com.haili.project.projectfirst.model.User">
         select * from USER
         where 1 = 1
-        and id in
+        and account_id in
         <if test="null != idList and idList.size() > 0">
             <foreach collection="idList" item="id" open="(" close=")" separator=",">
                 #{id}

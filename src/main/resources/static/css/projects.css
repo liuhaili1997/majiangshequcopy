@@ -36,3 +36,9 @@ body{
     font-weight: normal;
     color: #999999;
 }
+.badge-background-color {
+    background-color: #dd1314;
+}
+.profile .section{
+    margin-top: 10px;
+}

@@ -27,26 +27,15 @@ import java.util.List;
 public class IndexController {
 
     @Autowired
-    private UserMapper userMapper;
-
-    @Autowired
     private QuestionService questionService;
 
     @GetMapping("/")
     public String index(@RequestParam(name = "page", defaultValue = "1") Integer currentPage,
                         @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize,
                         HttpServletRequest request, Model model) {
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("token")) {
-                String token = cookie.getValue();
-                User user = userMapper.findByToken(token);
-                if (null != user) {
-                    request.getSession().setAttribute("user", user);
-                }
-                break;
-            }
-        }
+        //获取session内部的user，判断是否存在，才有权限
+        User user = (User) request.getSession().getAttribute("user");
+
         PageInformationDto questionList = questionService.list(currentPage,pageSize);
             model.addAttribute("questionList", questionList);
         return "index";
