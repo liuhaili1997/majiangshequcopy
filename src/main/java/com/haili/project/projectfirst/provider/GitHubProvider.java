@@ -1,10 +1,8 @@
 package com.haili.project.projectfirst.provider;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.haili.project.projectfirst.dto.AccessTokenDto;
 import com.haili.project.projectfirst.dto.GithubUser;
-import lombok.val;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 

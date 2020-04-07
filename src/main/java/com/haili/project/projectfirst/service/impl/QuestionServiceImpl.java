@@ -148,4 +148,16 @@ public class QuestionServiceImpl implements QuestionService {
         return pageInformationDto;
     }
 
+    @Override
+    public QuestionDto getById(Integer id) {
+        QuestionDto questionDto = new QuestionDto();
+        Question question = questionMapper.getById(id);
+        BeanUtils.copyProperties(question, questionDto);
+        User user = userMapper.findByAccountId(questionDto.getCreator());
+        if (null != user) {
+            questionDto.setUser(user);
+        }
+        return questionDto;
+    }
+
 }

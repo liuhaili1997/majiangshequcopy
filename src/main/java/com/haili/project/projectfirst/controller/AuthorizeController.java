@@ -5,6 +5,7 @@ import com.haili.project.projectfirst.dto.GithubUser;
 import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.provider.GitHubProvider;
+import com.haili.project.projectfirst.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
@@ -39,7 +41,7 @@ public class AuthorizeController {
     private String redirectUri;
 
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
@@ -69,17 +71,37 @@ public class AuthorizeController {
                 user.setName("林深时见鹿");
             }
             user.setAccountId(String.valueOf(githubUser.getId()));
-            user.setGmtCreate(System.currentTimeMillis());
-            user.setGmtModified(user.getGmtCreate());
             //当头像地址大于128个varchar时，是不可以将数据存入数据库的
             user.setAvatar(githubUser.getAvatarUrl());
-            userMapper.insert(user);
-            response.addCookie(new Cookie("token",token));
+            userService.createOrUpdateUser(user);
+            response.addCookie(new Cookie("token", token));
             //如果cookie不为空，登录成功，写cookie和session   redirect:渲染页面去除地址
             return "redirect:/";
         } else {
             //登录失败
             return "redirect:/";
         }
+    }
+
+    /**
+     * 退出登录，就必须要清除token cookie session
+     * @param request
+     * @return
+     */
+    @GetMapping("/logout")
+    public String logOut(HttpServletRequest request,
+                         HttpServletResponse response) {
+        //清除session
+        request.getSession().removeAttribute("user");
+        //清除已知的cookie 建立一个重名的cookie，key对应的value赋值为null 设置MaxAge为0
+        Cookie cookie = new Cookie("token", null);
+        //立即删除型
+        cookie.setMaxAge(0);
+        //项目的所有目录均有效
+        cookie.setPath("/");
+        //重新写入将覆盖之前的cookie
+        response.addCookie(cookie);
+
+        return "redirect:/";
     }
 }

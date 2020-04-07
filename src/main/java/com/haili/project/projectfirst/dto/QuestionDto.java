@@ -38,7 +38,7 @@ public class QuestionDto {
     /**
      * 发布者
      */
-    private Integer creator;
+    private String creator;
 
     /**
      * 评论数
@@ -61,7 +61,12 @@ public class QuestionDto {
     private String tag;
 
     /**
-     * 用户
+     * 用户头像图片路径
      */
     private String avatarUrl;
+
+    /**
+     * 用户对象
+     */
+    private User user;
 }

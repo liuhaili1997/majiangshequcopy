@@ -1,5 +1,6 @@
 package com.haili.project.projectfirst.mapper;
 
+import com.haili.project.projectfirst.dto.QuestionDto;
 import com.haili.project.projectfirst.model.Question;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -42,7 +43,7 @@ public interface QuestionMapper {
     /**
      * 查询属于当前用户写的问题
      *
-     * @param id          id
+     * @param accountId          id
      * @param currentPage 当前页数
      * @param pageSize    页尺寸
      * @return 查询结果
@@ -51,10 +52,18 @@ public interface QuestionMapper {
     List<Question> listByCreator(@Param("id") String accountId, @Param("currentPage") Integer currentPage, @Param("pageSize") Integer pageSize);
 
     /**
-     * 根据id查询相关的问题数据
-     * @param id
-     * @return
+     * 根据user中account_id查询相关的问题数据
+     * @param id id
+     * @return 值
      */
     @Select("select count(1) from question where creator = #{id}")
     Integer questionTotalBy(@Param("id") String id);
+
+    /**
+     * 据question的id查询信息
+     * @param id id
+     * @return 返回question对象信息
+     */
+    @Select("select * from question where id = #{id}")
+    Question getById(@Param("id") Integer id);
 }

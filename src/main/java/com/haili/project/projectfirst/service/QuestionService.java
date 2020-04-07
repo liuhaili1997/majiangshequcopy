@@ -1,6 +1,7 @@
 package com.haili.project.projectfirst.service;
 
 import com.haili.project.projectfirst.dto.PageInformationDto;
+import com.haili.project.projectfirst.dto.QuestionDto;
 import com.haili.project.projectfirst.model.Question;
 
 import java.util.List;
@@ -29,4 +30,11 @@ public interface QuestionService {
      * @return 返回分页查询数据
      */
     PageInformationDto listById(String id, Integer currentPage, Integer pageSize);
+
+    /**
+     * 通过id 获取整个question的信息
+     * @param id id
+     * @return 对象的信息
+     */
+    QuestionDto getById(Integer id);
 }

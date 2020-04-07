@@ -42,3 +42,31 @@ body{
 .profile .section{
     margin-top: 10px;
 }
+.tag-edit {
+    color: #999999;
+    font-size: 12px;
+    line-height: 20px;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+
+.tag-margin  {
+    margin-right: 2px;
+}
+/*发布人*/
+.initiator {
+    margin-top: 50px;
+}
+.initiator-name {
+    margin-left: 3px;
+    margin-top: 17px;
+    color: #999999;
+}
+.initiator-body {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+/*下滑线*/
+.underline-question {
+    border: 2px solid #999999;
+}
