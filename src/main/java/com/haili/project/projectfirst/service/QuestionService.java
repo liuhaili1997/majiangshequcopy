@@ -37,4 +37,16 @@ public interface QuestionService {
      * @return 对象的信息
      */
     QuestionDto getById(Integer id);
+
+    /**
+     * 判断记录是否存在，取决于id是否存在 更新还是创建新的记录
+     * @param question 对象
+     */
+    void createOrUpdateQuestion(Question question);
+
+    /**
+     * 累加阅读数量
+     * @param id 问题id
+     */
+    void incViewCount(Integer id);
 }

@@ -1,14 +1,17 @@
 package com.haili.project.projectfirst.controller;
 
+import com.haili.project.projectfirst.dto.QuestionDto;
 import com.haili.project.projectfirst.mapper.QuestionMapper;
 import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.Question;
 import com.haili.project.projectfirst.model.User;
+import com.haili.project.projectfirst.service.QuestionService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 发布的controller
+ *
  * @author Created by hailitortoise on 2020-03-25
  */
 @Controller
@@ -25,7 +29,12 @@ public class PublishController {
     @Autowired
     private QuestionMapper questionMapper;
 
-    /**如果是get请求：跳转页面 如果是post请求：处理数据*/
+    @Autowired
+    private QuestionService questionService;
+
+    /**
+     * 如果是get请求：跳转页面 如果是post请求：处理数据
+     */
     @GetMapping("/publish")
     public String publish() {
         return "publish";
@@ -35,6 +44,7 @@ public class PublishController {
     public String doPublish(@RequestParam(value = "title", required = false) String title,
                             @RequestParam(value = "description", required = false) String description,
                             @RequestParam(value = "tag", required = false) String tag,
+                            @RequestParam(value = "id", required = false) Integer id,
                             HttpServletRequest request, Model model) {
         //这里获取用于回显在前端
         model.addAttribute("title", title);
@@ -64,10 +74,26 @@ public class PublishController {
         question.setTag(tag);
         //个人觉得这里可以换成account_id
         question.setCreator(user.getAccountId());
-        Long currentTime = System.currentTimeMillis();
-        question.setGmtCreate(currentTime);
-        question.setGmtModified(currentTime);
-        questionMapper.create(question);
+        question.setId(id);
+
+        questionService.createOrUpdateQuestion(question);
         return "redirect:/";
+    }
+
+    /**
+     * GetMapping中的id可以通过注解 @PathVariable(name = "id")获得
+     */
+    @GetMapping("/publish/{id}")
+    public String edit(@PathVariable(name = "id") Integer id,
+                       Model model) {
+        //todo 编辑不需要添加浏览数量
+        QuestionDto question = questionService.getById(id);
+        //这里获取用于回显在前端
+        model.addAttribute("title", question.getTitle());
+        model.addAttribute("description", question.getDescription());
+        model.addAttribute("tag", question.getTag());
+        model.addAttribute("id", question.getId());
+
+        return "publish";
     }
 }

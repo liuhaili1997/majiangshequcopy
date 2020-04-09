@@ -2,12 +2,18 @@ package com.haili.project.projectfirst.service.impl;
 
 import com.haili.project.projectfirst.dto.PageInformationDto;
 import com.haili.project.projectfirst.dto.QuestionDto;
+import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
+import com.haili.project.projectfirst.exception.CustomizeException;
+import com.haili.project.projectfirst.mapper.QuestionExtendMapper;
 import com.haili.project.projectfirst.mapper.QuestionMapper;
 import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.Question;
+import com.haili.project.projectfirst.model.QuestionExample;
 import com.haili.project.projectfirst.model.User;
+import com.haili.project.projectfirst.model.UserExample;
 import com.haili.project.projectfirst.service.QuestionService;
 import org.apache.commons.lang.StringUtils;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,12 +35,15 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionMapper questionMapper;
 
+    @Autowired
+    private QuestionExtendMapper questionExtendMapper;
+
     @Override
     public PageInformationDto list(Integer currentPage, Integer pageSize) {
         //获取分页的真实数据
         PageInformationDto pageInformationDto = new PageInformationDto();
         //分页数据上传
-        Integer total = questionMapper.questionTotal();
+        Integer total = (int)questionMapper.countByExample(new QuestionExample());
         //获取总页数
         Integer totalPage;
         if (total % pageSize == 0) {
@@ -54,13 +63,16 @@ public class QuestionServiceImpl implements QuestionService {
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
         Integer offSize = pageSize * (currentPage - 1);
-        List<Question> questions = questionMapper.list(offSize, pageSize);
+        List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(new QuestionExample(), new RowBounds(offSize, pageSize));
         if (CollectionUtils.isEmpty(questions)) {
             return new PageInformationDto();
         }
         //获取对象集合中的某一个属性生成一个集合
         List<String> creatorList = questions.stream().map(Question::getCreator).distinct().collect(Collectors.toList());
-        List<User> userList = userMapper.findByIdList(creatorList);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andAccountIdIn(creatorList);
+        List<User> userList = userMapper.selectByExample(userExample);
         //通过id获取图片地址
         Map<String, String> avatarMap = new HashMap<>(10);
         if (!CollectionUtils.isEmpty(userList)) {
@@ -94,7 +106,10 @@ public class QuestionServiceImpl implements QuestionService {
         //获取分页的真实数据
         PageInformationDto pageInformationDto = new PageInformationDto();
         //分页数据上传
-        Integer total = questionMapper.questionTotalBy(accountId);
+        QuestionExample example = new QuestionExample();
+        example.createCriteria()
+                .andCreatorEqualTo(accountId);
+        Integer total = (int)questionMapper.countByExample(example);
         //获取总页数
         Integer totalPage;
         if (total % pageSize == 0) {
@@ -114,13 +129,19 @@ public class QuestionServiceImpl implements QuestionService {
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
         Integer offSize = pageSize * (currentPage - 1);
-        List<Question> questions = questionMapper.listByCreator(accountId, offSize, pageSize);
+        QuestionExample questionExample = new QuestionExample();
+        questionExample.createCriteria()
+                .andCreatorEqualTo(accountId);
+        List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(questionExample, new RowBounds(offSize, pageSize));
         if (CollectionUtils.isEmpty(questions)) {
             return new PageInformationDto();
         }
         //获取对象集合中的某一个属性生成一个集合
         List<String> creatorList = questions.stream().map(Question::getCreator).distinct().collect(Collectors.toList());
-        List<User> userList = userMapper.findByIdList(creatorList);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andAccountIdIn(creatorList);
+        List<User> userList = userMapper.selectByExample(userExample);
         //通过id获取图片地址
         Map<String, String> avatarMap = new HashMap<>(10);
         if (!CollectionUtils.isEmpty(userList)) {
@@ -151,13 +172,49 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public QuestionDto getById(Integer id) {
         QuestionDto questionDto = new QuestionDto();
-        Question question = questionMapper.getById(id);
+        Question question = questionMapper.selectByPrimaryKey(id);
+        if (question == null) {
+            throw new CustomizeException(CustomizeErrorEnums.QUESTION_RECORD_NOT_IN_TABLE);
+        }
         BeanUtils.copyProperties(question, questionDto);
-        User user = userMapper.findByAccountId(questionDto.getCreator());
-        if (null != user) {
-            questionDto.setUser(user);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andAccountIdEqualTo(questionDto.getCreator());
+        List<User> users = userMapper.selectByExample(userExample);
+        if (!CollectionUtils.isEmpty(users)) {
+            questionDto.setUser(users.get(0));
         }
         return questionDto;
+    }
+
+    @Override
+    public void createOrUpdateQuestion(Question question) {
+        Long currentTime = System.currentTimeMillis();
+        if (question.getId() == null) {
+            //创建新的记录
+            question.setGmtCreate(currentTime);
+            question.setGmtModified(currentTime);
+            questionMapper.insert(question);
+        } else {
+            //更新新的记录
+            question.setGmtModified(currentTime);
+            QuestionExample questionExample = new QuestionExample();
+            questionExample.createCriteria()
+                    .andIdEqualTo(question.getId());
+            int updateStatus = questionMapper.updateByExampleSelective(question, questionExample);
+            if (updateStatus != 1) {
+                throw new CustomizeException(CustomizeErrorEnums.QUESTION_NOT_FOUND);
+            }
+        }
+    }
+
+    @Override
+    public void incViewCount(Integer id) {
+        Question question = new Question();
+        question.setId(id);
+        //新增浏览的数量
+        question.setViewCount(1);
+        questionExtendMapper.incViewCount(question);
     }
 
 }

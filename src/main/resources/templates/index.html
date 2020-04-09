@@ -3,11 +3,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>麻将社区</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="css/projects.css"/>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <SCRIPT src="js/bootstrap.min.js" type="application/javascript"></SCRIPT>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/projects.css"/>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <SCRIPT src="/js/bootstrap.min.js" type="application/javascript"></SCRIPT>
 </head>
 <body>
 <div th:insert="navigation :: nav"></div>
@@ -30,7 +30,7 @@
                     </h4>
                     <span th:text="${question.description}"></span><br>
                     <span class="view-comment-count">
-                        <span th:text="${question.commentCount}"></span>个问题·
+                        <span th:text="${question.commentCount}"></span>个回复·
                         <span th:text="${question.viewCount}"></span>次浏览·
                         <span th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
                     </span>

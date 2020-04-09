@@ -36,6 +36,8 @@
 
 ```bash
 mvn flyway:migrate
+执行mybatis，使用maven方式执行：overwrite覆盖
+mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 ```
 
 ##知识：

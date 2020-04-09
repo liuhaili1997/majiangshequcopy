@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>麻将社区</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/projects.css"/>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <SCRIPT src="/js/bootstrap.min.js" type="application/javascript"></SCRIPT>
+</head>
+<body>
+<div th:insert="navigation :: nav"></div>
+<div class="jumbotron error-page">
+    <h1>我已去世！！！</h1>
+    <!--/*@thymesVar id="errorinfomation" type="com.haili.project.projectfirst.advice.CustomizeExceptionHandler"*/-->
+    <p th:text="${errorinfomation}">别等了，我不会再看你一眼的，你回去吧！</p>
+    <p><a class="btn btn-primary btn-lg" href="/" role="button">返回的灯塔</a></p>
+</div>
+</body>
+</html>

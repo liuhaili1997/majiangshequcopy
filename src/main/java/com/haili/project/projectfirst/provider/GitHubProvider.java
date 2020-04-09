@@ -36,6 +36,8 @@ public class GitHubProvider {
             return token;
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            client.newCall(request).cancel();
         }
         return null;
     }

@@ -70,3 +70,8 @@ body{
 .underline-question {
     border: 2px solid #999999;
 }
+/*error*/
+.error-page {
+    margin-left: 35%;
+    margin-top: 6%;
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<!--   用来加载一些driver、class和方法的时候手动执行 pom中已确定驱动：
+        <classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />
+-->
+    <!--用于指定一些链接的数据库和生成的数据库的表。。-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <!--添加分页插件-->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
+
+        <!--数据库的连接-->
+        <jdbcConnection driverClass="org.h2.Driver"
+                        connectionURL="jdbc:h2:~/projects"
+                        userId="sa"
+                        password="123">
+        </jdbcConnection>
+        <!--可以转换jdbc中的decimal和numeric(数字类型) 作为integer 如果是[Long integer short]-->
+        <javaTypeResolver >
+            <!--将decimal和numeric(数字类型)自动转换成 java.math.BigDecimal-->
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!--生成java的模型-->
+        <javaModelGenerator targetPackage="com.haili.project.projectfirst.model" targetProject="src/main/java">
+            <!--enableSubPackages为true：当没有创建路径是会默认创建上面targetProject的路径，一般是写死的-->
+            <property name="enableSubPackages" value="true" />
+            <!--对数据库进行查询的语句，前后是不是有空格，需要清除-->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--创建对应的mapper文件-->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--快速生成Java的interface接口 type：定义客户端的生成器 直接生成xml文件-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.haili.project.projectfirst.mapper"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--配置对应的表 其驱动上面的实现 domainObjectName：不指定会按照命名规范生成-->
+        <table tableName="user" domainObjectName="User" >
+            <!--true：将获取表的列名生成属性名，false：直接返回column的驼峰标识-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+            <!--自动生成key从实体类文件或表，插入数据库的时候自动生成一个key 并且同步，并且根据文件返回-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
+            <!--选择固定列时会对此column重命名，重写列名-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
+            <!--<ignoreColumn column="FRED" />-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+        </table>
+        <table tableName="question" domainObjectName="Question" ></table>
+
+    </context>
+</generatorConfiguration>
