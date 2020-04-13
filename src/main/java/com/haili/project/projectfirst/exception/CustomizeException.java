@@ -10,13 +10,18 @@ import com.haili.project.projectfirst.enums.InterCustomizeErrorEnums;
  */
 public class CustomizeException extends RuntimeException {
     private String message;
-
+    private Integer code;
     public CustomizeException(InterCustomizeErrorEnums enums) {
+        this.code = enums.getCode();
         this.message = enums.getMessage();
     }
 
     @Override
     public String getMessage() {
         return message;
+    }
+
+    public Integer getCode() {
+        return code;
     }
 }

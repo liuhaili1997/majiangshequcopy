@@ -13,7 +13,7 @@ public class QuestionDto {
     /**
      * id
      */
-    private Integer id;
+    private Long id;
 
     /**
      * 标题

@@ -36,7 +36,7 @@ public interface QuestionService {
      * @param id id
      * @return 对象的信息
      */
-    QuestionDto getById(Integer id);
+    QuestionDto getById(Long id);
 
     /**
      * 判断记录是否存在，取决于id是否存在 更新还是创建新的记录
@@ -48,5 +48,5 @@ public interface QuestionService {
      * 累加阅读数量
      * @param id 问题id
      */
-    void incViewCount(Integer id);
+    void incViewCount(Long id);
 }

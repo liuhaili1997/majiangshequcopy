@@ -14,4 +14,11 @@ public interface QuestionExtendMapper {
      * @return 更新状态吗
      */
     int incViewCount(Question question);
+
+    /**
+     * 增加回复数量 防止多线程问题
+     * @param question 实体
+     * @return 更新状态吗
+     */
+    int incCommentCount(Question question);
 }

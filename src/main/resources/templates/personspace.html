@@ -14,7 +14,10 @@
 <div class="container-fluid main profile">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <h2><span th:text="${sectionName}"></span></h2>
+            <h2>
+                <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+                <span class="text-title" th:text="${sectionName}"></span>
+            </h2>
             <hr/>
             <div class="media" th:each="question:${questionList.questionDtoList}">
                 <div class="media-left">

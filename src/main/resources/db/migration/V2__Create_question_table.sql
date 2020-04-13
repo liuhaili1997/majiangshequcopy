@@ -1,6 +1,6 @@
 create table QUESTION
 (
-    ID            INT auto_increment,
+    ID            BIGINT auto_increment not null,
     TITLE         VARCHAR(50)  not null,
     DESCRIPTION   TEXT         not null,
     GMT_CREATE    BIGINT       not null,

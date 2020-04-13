@@ -1,12 +1,10 @@
 package com.haili.project.projectfirst.controller;
 
 import com.haili.project.projectfirst.dto.QuestionDto;
-import com.haili.project.projectfirst.mapper.QuestionMapper;
-import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.Question;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.service.QuestionService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -25,9 +22,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class PublishController {
-
-    @Autowired
-    private QuestionMapper questionMapper;
 
     @Autowired
     private QuestionService questionService;
@@ -44,7 +38,7 @@ public class PublishController {
     public String doPublish(@RequestParam(value = "title", required = false) String title,
                             @RequestParam(value = "description", required = false) String description,
                             @RequestParam(value = "tag", required = false) String tag,
-                            @RequestParam(value = "id", required = false) Integer id,
+                            @RequestParam(value = "id", required = false) Long id,
                             HttpServletRequest request, Model model) {
         //这里获取用于回显在前端
         model.addAttribute("title", title);
@@ -84,7 +78,7 @@ public class PublishController {
      * GetMapping中的id可以通过注解 @PathVariable(name = "id")获得
      */
     @GetMapping("/publish/{id}")
-    public String edit(@PathVariable(name = "id") Integer id,
+    public String edit(@PathVariable(name = "id") Long id,
                        Model model) {
         //todo 编辑不需要添加浏览数量
         QuestionDto question = questionService.getById(id);

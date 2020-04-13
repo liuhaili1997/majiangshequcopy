@@ -12,7 +12,7 @@ import com.haili.project.projectfirst.model.QuestionExample;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.model.UserExample;
 import com.haili.project.projectfirst.service.QuestionService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -170,7 +170,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public QuestionDto getById(Integer id) {
+    public QuestionDto getById(Long id) {
         QuestionDto questionDto = new QuestionDto();
         Question question = questionMapper.selectByPrimaryKey(id);
         if (question == null) {
@@ -194,6 +194,9 @@ public class QuestionServiceImpl implements QuestionService {
             //创建新的记录
             question.setGmtCreate(currentTime);
             question.setGmtModified(currentTime);
+            question.setViewCount(0);
+            question.setCommentCount(0);
+            question.setLikeCount(0);
             questionMapper.insert(question);
         } else {
             //更新新的记录
@@ -209,7 +212,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void incViewCount(Integer id) {
+    public void incViewCount(Long id) {
         Question question = new Question();
         question.setId(id);
         //新增浏览的数量

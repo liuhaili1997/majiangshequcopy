@@ -75,3 +75,44 @@ body{
     margin-left: 35%;
     margin-top: 6%;
 }
+
+/*评论上方的头像*/
+.comment-img {
+    margin: 10px 0px;
+}
+/*回复评论上的button*/
+.btn-float-right {
+    float: right;
+    margin: 12px 0px;
+}
+/*回复数显示的格式*/
+.comment-span {
+    margin-top: 0px;
+}
+/*评论距离内容的的宽度*/
+.icon-margin {
+    margin-top: 15px;
+    color: #999999;
+}
+.icon-margin .icon-padding {
+    margin-right: 6px;
+    font-size: 15px;
+}
+/*鼠标悬浮*/
+.icon-margin .icon-padding:hover {
+    color: #499ff3;
+}
+/*评论之间需要距离*/
+.comment-content {
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+/*每一个页面的首个标题*/
+.text-title {
+    font-size: 21px;
+    margin-left: 3px;
+}
+.question-title {
+    margin-top: 30px;
+}

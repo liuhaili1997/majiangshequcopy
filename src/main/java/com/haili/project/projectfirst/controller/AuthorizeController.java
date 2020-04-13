@@ -2,11 +2,10 @@ package com.haili.project.projectfirst.controller;
 
 import com.haili.project.projectfirst.dto.AccessTokenDto;
 import com.haili.project.projectfirst.dto.GithubUser;
-import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.provider.GitHubProvider;
 import com.haili.project.projectfirst.service.UserService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

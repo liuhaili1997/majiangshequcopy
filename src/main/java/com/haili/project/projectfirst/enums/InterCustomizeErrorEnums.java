@@ -6,4 +6,6 @@ package com.haili.project.projectfirst.enums;
  */
 public interface InterCustomizeErrorEnums {
     String getMessage();
+
+    Integer getCode();
 }
