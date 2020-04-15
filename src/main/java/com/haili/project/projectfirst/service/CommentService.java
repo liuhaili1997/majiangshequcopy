@@ -3,6 +3,7 @@ package com.haili.project.projectfirst.service;
 import com.haili.project.projectfirst.dto.CommentDto;
 import com.haili.project.projectfirst.enums.CommentTypeEnum;
 import com.haili.project.projectfirst.model.Comment;
+import com.haili.project.projectfirst.model.User;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public interface CommentService {
 
-    void insert(Comment comment);
+    void insert(Comment comment, User commentator);
 
     List<CommentDto> listByTargetId(Long id, CommentTypeEnum type);
 }

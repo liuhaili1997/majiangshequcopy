@@ -9,12 +9,12 @@ import java.util.List;
  * @author Created by hailitortoise on 2020-03-27
  */
 @Data
-public class PageInformationDto {
+public class PageInformationDto<T> {
 
     /**
      * 查询到聚合数据
      */
-    private List<QuestionDto> questionDtoList;
+    private List<T> data;
 
 
     /**

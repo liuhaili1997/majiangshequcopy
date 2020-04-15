@@ -3,10 +3,13 @@ package com.haili.project.projectfirst.service.impl;
 import com.haili.project.projectfirst.dto.CommentDto;
 import com.haili.project.projectfirst.enums.CommentTypeEnum;
 import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
+import com.haili.project.projectfirst.enums.NotificationEnums;
+import com.haili.project.projectfirst.enums.NotificationStatusEnums;
 import com.haili.project.projectfirst.exception.CustomizeException;
 import com.haili.project.projectfirst.mapper.*;
 import com.haili.project.projectfirst.model.*;
 import com.haili.project.projectfirst.service.CommentService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,8 +44,12 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentExtendMapper commentExtendMapper;
 
+    @Autowired
+    private NotificationMapper notificationMapper;
+
+
     @Override
-    public void insert(Comment comment) {
+    public void insert(Comment comment, User commentator) {
         Long parentId = comment.getParentId();
         if (parentId == null || parentId == 0) {
             throw new CustomizeException(CustomizeErrorEnums.TARGET_PARAM_NOT_FOUND);
@@ -64,8 +71,11 @@ public class CommentServiceImpl implements CommentService {
             commentInc.setId(parentId);
             commentInc.setCommentCount(1L);
             commentExtendMapper.incCommentCount(commentInc);
+            //创建通知
+            //todo commentById.getContent() 存在歧义，别人评论了评论是应该获得评论内容，还是我评论的问题的title
+            createNotify(comment, commentById.getCommentator(), commentator.getName(), commentById.getContent(), NotificationEnums.REPLY_COMMENT,commentById.getId());
         } else {
-            //回复问题
+            //回复问题 可以用于todo
             Question question = questionMapper.selectByPrimaryKey(parentId);
             if (null == question) {
                 throw new CustomizeException(CustomizeErrorEnums.QUESTION_NOT_FOUND);
@@ -75,7 +85,37 @@ public class CommentServiceImpl implements CommentService {
             questionInc.setId(parentId);
             questionInc.setCommentCount(1);
             questionExtendMapper.incCommentCount(questionInc);
+            createNotify(comment,question.getCreator(),commentator.getName(), question.getTitle(), NotificationEnums.REPLY_QUESTION,question.getId());
         }
+    }
+
+    /**
+     * 生成通知表单
+     *
+     * @param comment           评论对象
+     * @param receiver          通过parentId获得的被评论的ID
+     * @param creator           姓名
+     * @param outerTitle        外部标题
+     * @param notificationEnums type类型
+     */
+    private void createNotify(Comment comment, String receiver, String creator, String outerTitle, NotificationEnums notificationEnums, Long outertId) {
+        //通知表的生成
+        Notification notification = new Notification();
+        notification.setGmtCreate(System.currentTimeMillis());
+        //通知是问题还是评论
+        notification.setType(notificationEnums.getStatus());
+        notification.setOuterId(outertId);
+        //评论人
+        String commentator = comment.getCommentator();
+        if (StringUtils.isNotBlank(commentator)) {
+            notification.setNotifier(commentator);
+        }
+        notification.setStatus(NotificationStatusEnums.UNREAD.getStatus());
+        //评论的接受者
+        notification.setReceiver(receiver);
+        notification.setNotifierName(creator);
+        notification.setOuterTitle(outerTitle);
+        notificationMapper.insert(notification);
     }
 
     @Override

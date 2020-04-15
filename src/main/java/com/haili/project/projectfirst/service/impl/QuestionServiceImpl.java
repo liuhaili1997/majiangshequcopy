@@ -39,13 +39,16 @@ public class QuestionServiceImpl implements QuestionService {
     private QuestionExtendMapper questionExtendMapper;
 
     @Override
-    public PageInformationDto list(Integer currentPage, Integer pageSize) {
+    public PageInformationDto list(String accountId, Integer currentPage, Integer pageSize) {
         //获取分页的真实数据
-        PageInformationDto pageInformationDto = new PageInformationDto();
+        PageInformationDto<QuestionDto> pageInformationDto = new PageInformationDto<>();
         //分页数据上传
-        Integer total = (int)questionMapper.countByExample(new QuestionExample());
+        QuestionExample questionExample1 = new QuestionExample();
+        questionExample1.createCriteria()
+                .andCreatorEqualTo(accountId);
+        Integer total = (int)questionMapper.countByExample(questionExample1);
         //获取总页数
-        Integer totalPage;
+        int totalPage;
         if (total % pageSize == 0) {
             totalPage = total / pageSize;
         } else {
@@ -62,12 +65,12 @@ public class QuestionServiceImpl implements QuestionService {
         }
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
-        Integer offSize = pageSize * (currentPage - 1);
+        int offSize = pageSize * (currentPage - 1);
         QuestionExample questionExample = new QuestionExample();
         questionExample.setOrderByClause("gmt_create desc");
         List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(questionExample, new RowBounds(offSize, pageSize));
         if (CollectionUtils.isEmpty(questions)) {
-            return new PageInformationDto();
+            return new PageInformationDto<>();
         }
         //获取对象集合中的某一个属性生成一个集合
         List<String> creatorList = questions.stream().map(Question::getCreator).distinct().collect(Collectors.toList());
@@ -97,7 +100,7 @@ public class QuestionServiceImpl implements QuestionService {
             questionDtoList.add(questionDto);
         }
 
-        pageInformationDto.setQuestionDtoList(questionDtoList);
+        pageInformationDto.setData(questionDtoList);
 
         return pageInformationDto;
     }
@@ -106,14 +109,14 @@ public class QuestionServiceImpl implements QuestionService {
     public PageInformationDto listById(String accountId, Integer currentPage, Integer pageSize) {
 
         //获取分页的真实数据
-        PageInformationDto pageInformationDto = new PageInformationDto();
+        PageInformationDto<QuestionDto> pageInformationDto = new PageInformationDto<>();
         //分页数据上传
         QuestionExample example = new QuestionExample();
         example.createCriteria()
                 .andCreatorEqualTo(accountId);
         Integer total = (int)questionMapper.countByExample(example);
         //获取总页数
-        Integer totalPage;
+        int totalPage;
         if (total % pageSize == 0) {
             totalPage = total / pageSize;
         } else {
@@ -130,13 +133,13 @@ public class QuestionServiceImpl implements QuestionService {
         }
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
-        Integer offSize = pageSize * (currentPage - 1);
+        int offSize = pageSize * (currentPage - 1);
         QuestionExample questionExample = new QuestionExample();
         questionExample.createCriteria()
                 .andCreatorEqualTo(accountId);
         List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(questionExample, new RowBounds(offSize, pageSize));
         if (CollectionUtils.isEmpty(questions)) {
-            return new PageInformationDto();
+            return new PageInformationDto<>();
         }
         //获取对象集合中的某一个属性生成一个集合
         List<String> creatorList = questions.stream().map(Question::getCreator).distinct().collect(Collectors.toList());
@@ -166,7 +169,7 @@ public class QuestionServiceImpl implements QuestionService {
             questionDtoList.add(questionDto);
         }
 
-        pageInformationDto.setQuestionDtoList(questionDtoList);
+        pageInformationDto.setData(questionDtoList);
 
         return pageInformationDto;
     }
@@ -232,6 +235,7 @@ public class QuestionServiceImpl implements QuestionService {
         String[] tags = StringUtils.split(tag, ",");
         //Arrays.stream 可以对数组进行流处理 添加字符用于连接两个不同的元素并转换为字符串
         String regexpTag = Arrays.stream(tags).collect(Collectors.joining("|"));
+        //replace String.join("|", tags)
         Question question = new Question();
         question.setId(query.getId());
         question.setTag(regexpTag);

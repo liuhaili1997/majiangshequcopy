@@ -3,6 +3,7 @@ package com.haili.project.projectfirst.interceptor;
 import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.model.UserExample;
+import com.haili.project.projectfirst.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -24,6 +25,9 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private NotificationService notificationService;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         Cookie[] cookies = request.getCookies();
@@ -36,6 +40,8 @@ public class SessionInterceptor implements HandlerInterceptor {
                 List<User> userList = userMapper.selectByExample(userExample);
                 if (!CollectionUtils.isEmpty(userList)) {
                     request.getSession().setAttribute("user", userList.get(0));
+                    Long unReadCount = notificationService.unReadCount(userList.get(0).getAccountId());
+                    request.getSession().setAttribute("unReadNotificationCount", unReadCount);
                 }
                 break;
             }

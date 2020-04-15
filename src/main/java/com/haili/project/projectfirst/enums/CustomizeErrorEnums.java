@@ -11,6 +11,8 @@ public enum CustomizeErrorEnums implements InterCustomizeErrorEnums {
     TYPE_PARAM_WRONG(2004, "你的类型不正确，不在判断范围内"),
     COMMENT_NOT_FOUND(2005, "你回复的评论不存在，你出现了幻觉"),
     CONTENT_IS_EMPTY(2006, "你的评论是空的哦，请您啊，知无不言言无不尽！！"),
+    READ_NOTIFICATION_FAIL(2007, "已读出错，小兄弟你在偷窥别人信息吖！！"),
+    READ_NOTIFICATION_NOT_EXIT(2008, "我查了所有的记录都没有找到相应的记录，不好意思啊！！"),
 
     NOT_LOGIN(3001,"未登录，你现在做的操作需要等你登录后才有权限操作"),
     SYSTEM_ERROR(3002,"服务端系统异常...我已乏，跪安吧！！！")

@@ -1,9 +1,11 @@
 package com.haili.project.projectfirst.controller;
 
+import com.haili.project.projectfirst.dto.NotificationDto;
 import com.haili.project.projectfirst.dto.PageInformationDto;
 import com.haili.project.projectfirst.enums.PersonEnum;
 import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.User;
+import com.haili.project.projectfirst.service.NotificationService;
 import com.haili.project.projectfirst.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,9 @@ public class PersonSpaceController {
     @Autowired
     private QuestionService questionService;
 
+    @Autowired
+    private NotificationService notificationService;
+
     ///{action}:动态的切换路径来做这个内容和样式的替换
 
     @GetMapping("/profile/{action}")
@@ -42,9 +47,15 @@ public class PersonSpaceController {
         if ("questionList".equals(action)) {
             model.addAttribute("section", "questionList");
             model.addAttribute("sectionName", "我的问题");
+            PageInformationDto pageInformationDto = questionService.listById(user.getAccountId(), currentPage, pageSize);
+            model.addAttribute("questionList", pageInformationDto);
         } else if ("replies".equals(action)) {
             model.addAttribute("section", "replies");
             model.addAttribute("sectionName", "最新回复");
+            PageInformationDto pageInformationDto = notificationService.list(user.getAccountId(), currentPage, pageSize);
+            Long unReadCount = notificationService.unReadCount(user.getAccountId());
+            model.addAttribute("questionList", pageInformationDto);
+            model.addAttribute("unReadCount", unReadCount);
         } else if ("myInterest".equals(action)) {
             model.addAttribute("section", "myInterest");
             model.addAttribute("sectionName", "我的关注");
@@ -55,8 +66,7 @@ public class PersonSpaceController {
             model.addAttribute("section", "privateInfo");
             model.addAttribute("sectionName", "私人信息");
         }
-        PageInformationDto pageInformationDto = questionService.listById(user.getAccountId(), currentPage, pageSize);
-        model.addAttribute("questionList", pageInformationDto);
+
         return "personspace";
 
     }
