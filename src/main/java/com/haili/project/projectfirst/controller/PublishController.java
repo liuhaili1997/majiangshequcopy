@@ -1,5 +1,6 @@
 package com.haili.project.projectfirst.controller;
 
+import com.haili.project.projectfirst.cache.TagCache;
 import com.haili.project.projectfirst.dto.QuestionDto;
 import com.haili.project.projectfirst.model.Question;
 import com.haili.project.projectfirst.model.User;
@@ -30,7 +31,9 @@ public class PublishController {
      * 如果是get请求：跳转页面 如果是post请求：处理数据
      */
     @GetMapping("/publish")
-    public String publish() {
+    public String publish(Model model) {
+
+        model.addAttribute("tags", TagCache.get());
         return "publish";
     }
 
@@ -44,6 +47,7 @@ public class PublishController {
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
+        model.addAttribute("tags", TagCache.get());
         if (StringUtils.isBlank(title)) {
             model.addAttribute("erro", "标题不能为空");
             return "publish";
@@ -56,6 +60,12 @@ public class PublishController {
             model.addAttribute("erro", "请您最少写一个标签，方便查找");
             return "publish";
         }
+        String inValid = TagCache.filterInValid(tag);
+        if (StringUtils.isNotBlank(inValid)) {
+            model.addAttribute("erro", "你自己写了的标签是不能存的哦！！非法标签："+inValid);
+            return "publish";
+        }
+
         //获取session内部的user，判断是否存在，才有权限
         User user = (User) request.getSession().getAttribute("user");
         if (null == user) {
@@ -87,7 +97,7 @@ public class PublishController {
         model.addAttribute("description", question.getDescription());
         model.addAttribute("tag", question.getTag());
         model.addAttribute("id", question.getId());
-
+        model.addAttribute("tags", TagCache.get());
         return "publish";
     }
 }

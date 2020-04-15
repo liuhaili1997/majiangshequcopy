@@ -240,4 +240,12 @@ spring.thymeleaf.suffix = .html
 
 #CSDN 文档学习
 [hashMap 的初始化容量 以及hash函数讲解](https://blog.csdn.net/Anenan/article/details/91490390)      
-[java8 List转Map的使用技巧](https://blog.csdn.net/Hern_16/article/details/105118006?fps=1&locationNum=2)      
+[java8 List转Map的使用技巧](https://blog.csdn.net/Hern_16/article/details/105118006?fps=1&locationNum=2) 
+
+##idea 快捷键
+Ctrl + Alt + v 抽取对象
+Ctrl + Alt + m 抽取方法     
+Ctrl + Alt + p 抽取参数
+
+Ctrl + F6 修改方法的参数类型
+Alt + F7 查看对应方法的依赖位置

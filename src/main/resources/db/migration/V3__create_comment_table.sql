@@ -7,6 +7,7 @@ create table comment
 	gmt_create      bigint not null,
 	gmt_modified    bigint not null,
 	like_count      bigint default 0 not null,
+	comment_count   bigint default 0 not null,
 	CONTENT      VARCHAR(2048),
 	constraint comment_pk
 		primary key (id)
@@ -19,4 +20,5 @@ comment on column comment.commentator is '评论人的id对应user中的account_
 comment on column comment.gmt_create is '创建时间';
 comment on column comment.gmt_modified is '更新时间';
 comment on column comment.like_count is '点赞数';
+comment on column comment.comment_count is '评论的评论数';
 comment on column COMMENT.CONTENT is '回复内容';

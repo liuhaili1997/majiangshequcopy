@@ -38,6 +38,9 @@ body{
 }
 .badge-background-color {
     background-color: #dd1314;
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+    margin-left: 4px;
 }
 .profile .section{
     margin-top: 10px;
@@ -98,6 +101,10 @@ body{
     margin-right: 6px;
     font-size: 15px;
 }
+/*展示二级目录后的标签要变为蓝色*/
+.icon-margin .active{
+    color: #499ff3;
+}
 /*鼠标悬浮*/
 .icon-margin .icon-padding:hover {
     color: #499ff3;
@@ -115,4 +122,66 @@ body{
 }
 .question-title {
     margin-top: 30px;
+}
+/*二级目录的边框*/
+.second-border {
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #dddddd;
+    padding-top: 15px;
+    margin-bottom: 16px;
+}
+/*子评论的发布按钮*/
+.sub-btn {
+    margin: 13px 0px;
+}
+/*二级目录的评论时间*/
+.time-comment {
+    font-size: smaller;
+    color: #aaa;
+    margin-left: 20px;
+}
+/*二级评论中用户的名字*/
+.comment-user-sub {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: normal;
+    color: #666666;
+}
+/*标签的间距*/
+.tag-question-margin {
+    cursor: pointer;
+    white-space: normal;
+    margin: 5px 5px;
+    display: inline-block;
+    font-weight: 500;
+    line-height: 14px;
+    font-size: 12px;
+}
+/*相关问题的列表的样式*/
+.question-href {
+    line-height: 22px;
+    font-size: 13px;
+    padding-left: 0px;
+    list-style: none;
+
+}
+.question-href a {
+    text-decoration: none;
+}
+
+/*个人微信照片样式*/
+.img-author {
+    width: 50%;
+    height: 204px;
+}
+/*publish 整个tag的样式*/
+.publish-tag-content {
+    display: none;
+    margin-top: 12px;
+}
+/*tag puilsh发布分享的问题的tag距离上边框的距离*/
+.tab-margin-top {
+    margin-top: 5px;
+    margin-left: 10px;
 }

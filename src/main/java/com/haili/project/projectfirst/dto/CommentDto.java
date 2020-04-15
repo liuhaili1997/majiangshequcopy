@@ -46,6 +46,11 @@ public class CommentDto {
     private Long likeCount;
 
     /**
+     * 点赞人数
+     */
+    private Long commentCount;
+
+    /**
      * 内容
      */
     private String content;

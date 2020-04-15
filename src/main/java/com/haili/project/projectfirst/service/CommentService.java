@@ -1,6 +1,7 @@
 package com.haili.project.projectfirst.service;
 
 import com.haili.project.projectfirst.dto.CommentDto;
+import com.haili.project.projectfirst.enums.CommentTypeEnum;
 import com.haili.project.projectfirst.model.Comment;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface CommentService {
 
     void insert(Comment comment);
 
-    List<CommentDto> listByQuestionId(Long id);
+    List<CommentDto> listByTargetId(Long id, CommentTypeEnum type);
 }

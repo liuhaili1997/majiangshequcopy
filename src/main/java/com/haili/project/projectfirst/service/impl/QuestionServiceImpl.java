@@ -63,7 +63,9 @@ public class QuestionServiceImpl implements QuestionService {
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
         Integer offSize = pageSize * (currentPage - 1);
-        List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(new QuestionExample(), new RowBounds(offSize, pageSize));
+        QuestionExample questionExample = new QuestionExample();
+        questionExample.setOrderByClause("gmt_create desc");
+        List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(questionExample, new RowBounds(offSize, pageSize));
         if (CollectionUtils.isEmpty(questions)) {
             return new PageInformationDto();
         }
@@ -218,6 +220,30 @@ public class QuestionServiceImpl implements QuestionService {
         //新增浏览的数量
         question.setViewCount(1);
         questionExtendMapper.incViewCount(question);
+    }
+
+    @Override
+    public List<QuestionDto> selectRelated(QuestionDto query) {
+        String tag = query.getTag();
+        if (StringUtils.isBlank(tag)) {
+            return new ArrayList<>();
+        }
+        //通过插件将字符串拆分开来，然后添加  | 才可以用于正则表达式的查询
+        String[] tags = StringUtils.split(tag, ",");
+        //Arrays.stream 可以对数组进行流处理 添加字符用于连接两个不同的元素并转换为字符串
+        String regexpTag = Arrays.stream(tags).collect(Collectors.joining("|"));
+        Question question = new Question();
+        question.setId(query.getId());
+        question.setTag(regexpTag);
+
+        //通过自己定义方法来实现查询
+        List<Question> questionList = questionExtendMapper.selectRelated(question);
+        List<QuestionDto> questionDtoList = questionList.stream().map(q -> {
+            QuestionDto questionDto = new QuestionDto();
+            BeanUtils.copyProperties(q, questionDto);
+            return questionDto;
+        }).collect(Collectors.toList());
+        return questionDtoList;
     }
 
 }

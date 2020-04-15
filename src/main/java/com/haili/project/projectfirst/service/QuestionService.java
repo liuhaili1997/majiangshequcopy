@@ -49,4 +49,11 @@ public interface QuestionService {
      * @param id 问题id
      */
     void incViewCount(Long id);
+
+    /**
+     * 根据tag查询对应的问题，并且显示出来
+     * @param questionDto 接受参数的实体类
+     * @return 结果集合
+     */
+    List<QuestionDto> selectRelated(QuestionDto questionDto);
 }

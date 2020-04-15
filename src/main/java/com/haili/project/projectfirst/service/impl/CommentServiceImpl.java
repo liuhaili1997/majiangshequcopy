@@ -4,10 +4,7 @@ import com.haili.project.projectfirst.dto.CommentDto;
 import com.haili.project.projectfirst.enums.CommentTypeEnum;
 import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
 import com.haili.project.projectfirst.exception.CustomizeException;
-import com.haili.project.projectfirst.mapper.CommentMapper;
-import com.haili.project.projectfirst.mapper.QuestionExtendMapper;
-import com.haili.project.projectfirst.mapper.QuestionMapper;
-import com.haili.project.projectfirst.mapper.UserMapper;
+import com.haili.project.projectfirst.mapper.*;
 import com.haili.project.projectfirst.model.*;
 import com.haili.project.projectfirst.service.CommentService;
 import org.springframework.beans.BeanUtils;
@@ -41,6 +38,9 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private CommentExtendMapper commentExtendMapper;
+
     @Override
     public void insert(Comment comment) {
         Long parentId = comment.getParentId();
@@ -59,6 +59,11 @@ public class CommentServiceImpl implements CommentService {
                 throw new CustomizeException(CustomizeErrorEnums.COMMENT_NOT_FOUND);
             }
             commentMapper.insert(comment);
+            /*增加评论的评论数量*/
+            Comment commentInc = new Comment();
+            commentInc.setId(parentId);
+            commentInc.setCommentCount(1L);
+            commentExtendMapper.incCommentCount(commentInc);
         } else {
             //回复问题
             Question question = questionMapper.selectByPrimaryKey(parentId);
@@ -74,12 +79,12 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<CommentDto> listByQuestionId(Long id) {
+    public List<CommentDto> listByTargetId(Long id, CommentTypeEnum type) {
         CommentExample commentExample = new CommentExample();
         //要获取的只是需要问题对应的评论就好了，而不是id对应的评论
         commentExample.createCriteria()
                 .andParentIdEqualTo(id)
-                .andTypeEqualTo(CommentTypeEnum.QUESTION.getCode());
+                .andTypeEqualTo(type.getCode());
         commentExample.setOrderByClause("gmt_create desc");
         List<Comment> comments = commentMapper.selectByExample(commentExample);
         if (CollectionUtils.isEmpty(comments)) {

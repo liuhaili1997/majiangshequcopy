@@ -9,7 +9,7 @@ import lombok.Data;
  * @author Created by hailitortoise on 2020-04-09
  */
 @Data
-public class ResultDto {
+public class ResultDto<T> {
 
     /**
      * 状态码
@@ -20,6 +20,11 @@ public class ResultDto {
      * 状态信息
      */
     private String message;
+
+    /**
+     * 泛型T：可以代表一切，既可以是变量也可以是集合或对象
+     */
+    private T data;
 
     public static ResultDto errorOf(Integer code, String message) {
         ResultDto resultDto = new ResultDto();
@@ -42,4 +47,13 @@ public class ResultDto {
         resultDto.setMessage("请求成功");
         return resultDto;
     }
+
+    public static <T> ResultDto success(T t) {
+        ResultDto resultDto = new ResultDto();
+        resultDto.setCode(200);
+        resultDto.setMessage("请求成功");
+        resultDto.setData(t);
+        return resultDto;
+    }
+
 }

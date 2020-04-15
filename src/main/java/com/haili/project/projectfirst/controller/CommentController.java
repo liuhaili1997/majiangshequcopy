@@ -1,7 +1,9 @@
 package com.haili.project.projectfirst.controller;
 
+import com.haili.project.projectfirst.dto.CommentDto;
 import com.haili.project.projectfirst.dto.CommentWebCreatorDto;
 import com.haili.project.projectfirst.dto.ResultDto;
+import com.haili.project.projectfirst.enums.CommentTypeEnum;
 import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
 import com.haili.project.projectfirst.model.Comment;
 import com.haili.project.projectfirst.model.User;
@@ -9,9 +11,11 @@ import com.haili.project.projectfirst.service.CommentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 评论回复的实现和接受
@@ -61,7 +65,20 @@ public class CommentController {
         comment.setGmtModified(currentTime);
         comment.setCommentator(user.getAccountId());
         comment.setLikeCount(0L);
+        comment.setCommentCount(0L);
         commentService.insert(comment);
         return ResultDto.success();
+    }
+
+    /**
+     * 获取的是二级目录的信息和回复
+     * @param id id
+     * @return 结果数集
+     */
+    @ResponseBody
+    @RequestMapping(value = "/comment/{id}", method = RequestMethod.GET)
+    public ResultDto commentSubList(@PathVariable(name = "id") Long id) {
+        List<CommentDto> commentDtoList = commentService.listByTargetId(id, CommentTypeEnum.COMMENT);
+        return ResultDto.success(commentDtoList);
     }
 }
