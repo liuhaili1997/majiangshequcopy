@@ -58,7 +58,7 @@ public class CommentServiceImpl implements CommentService {
         if (type == null || !CommentTypeEnum.isExit(type)) {
             throw new CustomizeException(CustomizeErrorEnums.TYPE_PARAM_WRONG);
         }
-
+        comment.setCommentCount(0L);
         if (CommentTypeEnum.COMMENT.getCode().equals(type)) {
             //回复的时评论
             Comment commentById = commentMapper.selectByPrimaryKey(parentId);
@@ -99,6 +99,10 @@ public class CommentServiceImpl implements CommentService {
      * @param notificationEnums type类型
      */
     private void createNotify(Comment comment, String receiver, String creator, String outerTitle, NotificationEnums notificationEnums, Long outertId) {
+        String commentator = comment.getCommentator();
+        if (StringUtils.isNotBlank(commentator) && commentator.equals(receiver)) {
+            return;
+        }
         //通知表的生成
         Notification notification = new Notification();
         notification.setGmtCreate(System.currentTimeMillis());
@@ -106,7 +110,6 @@ public class CommentServiceImpl implements CommentService {
         notification.setType(notificationEnums.getStatus());
         notification.setOuterId(outertId);
         //评论人
-        String commentator = comment.getCommentator();
         if (StringUtils.isNotBlank(commentator)) {
             notification.setNotifier(commentator);
         }

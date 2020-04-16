@@ -133,12 +133,12 @@
                         <div class="media-left">
                             <a href="#">
                                 <img class="media-object img-rounded user-img"
-                                     th:src="${question.user.getAvatar()}"/>
+                                     th:src="${session.user != null ? session.user.avatar:'/images/default.png'}"/>
                             </a>
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading initiator-name">
-                                <span th:text="${question.user.getName()}"></span>
+                                <span th:text="${session.user != null ? session.user.name:'不知客从何处来'}"></span>
                             </h6>
                         </div>
                     </div>
@@ -184,5 +184,6 @@
         </div>
     </div>
 </div>
+<div th:insert="footer :: author"></div>
 </body>
 </html>

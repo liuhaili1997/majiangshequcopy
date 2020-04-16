@@ -14,6 +14,9 @@ public enum CustomizeErrorEnums implements InterCustomizeErrorEnums {
     READ_NOTIFICATION_FAIL(2007, "已读出错，小兄弟你在偷窥别人信息吖！！"),
     READ_NOTIFICATION_NOT_EXIT(2008, "我查了所有的记录都没有找到相应的记录，不好意思啊！！"),
 
+
+    FILE_UPLOAD_FAIL(2009, "图片上传失败，你仔细看看名字吧"),
+
     NOT_LOGIN(3001,"未登录，你现在做的操作需要等你登录后才有权限操作"),
     SYSTEM_ERROR(3002,"服务端系统异常...我已乏，跪安吧！！！")
     ;

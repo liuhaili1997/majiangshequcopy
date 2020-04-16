@@ -34,4 +34,22 @@
     <select id="selectRelated" parameterType="com.haili.project.projectfirst.model.Question" resultMap="BaseResultMap">
         select * from question where id != #{id} and tag regexp #{tag}
     </select>
+    <select id="countByExample" parameterType="com.haili.project.projectfirst.dto.QuestionQueryDto" resultType="java.lang.Integer">
+        select count(*) from question
+        <where>
+            <if test="search != null">
+                and title regexp #{search}
+            </if>
+        </where>
+    </select>
+    <select id="selectBySearch" parameterType="com.haili.project.projectfirst.dto.QuestionQueryDto"
+            resultType="com.haili.project.projectfirst.model.Question">
+        select * from question
+        <where>
+            <if test="search != null">
+                and title regexp #{search}
+            </if>
+        </where>
+        order by gmt_create desc limit #{currantPage},#{pageSize}
+    </select>
 </mapper>

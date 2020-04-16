@@ -89,6 +89,13 @@
             <version>1.4.200</version>
         </dependency>
 
+        <!--Ucloud 将文件创建在云仓库-->
+        <dependency>
+            <groupId>cn.ucloud.ufile</groupId>
+            <artifactId>ufile-client-java</artifactId>
+            <version>2.4.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>

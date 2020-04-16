@@ -5,6 +5,7 @@ import com.haili.project.projectfirst.dto.GithubUser;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.provider.GitHubProvider;
 import com.haili.project.projectfirst.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,11 +21,13 @@ import java.util.UUID;
 /**
  * 这个controller不仅仅是接收url解析cod，还包括调用access_token,访问github，判断是否正确，返回真正的access_token
  * 通过这个调用user-api获取用户信息
+ * @Slf4j 自动注入log 将可以打印日志
  *
  * @author lhl
  * @date 2020-03-20
  */
 @Controller
+@Slf4j
 public class AuthorizeController {
 
     @Autowired
@@ -78,6 +81,7 @@ public class AuthorizeController {
             return "redirect:/";
         } else {
             //登录失败
+            log.error("callback get github error {}",githubUser);
             return "redirect:/";
         }
     }

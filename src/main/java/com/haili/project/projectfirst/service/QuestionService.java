@@ -18,9 +18,10 @@ public interface QuestionService {
      * @param accountId   账户id
      * @param currentPage 当前页
      * @param pageSize    每页尺寸
+     * @param search
      * @return 数据集合
      */
-    PageInformationDto list(String accountId, Integer currentPage, Integer pageSize);
+    PageInformationDto list(String accountId, Integer currentPage, Integer pageSize, String search);
 
     /**
      * 根据当前用户获取用户的提问

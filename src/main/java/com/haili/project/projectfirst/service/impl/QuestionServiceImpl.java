@@ -2,6 +2,7 @@ package com.haili.project.projectfirst.service.impl;
 
 import com.haili.project.projectfirst.dto.PageInformationDto;
 import com.haili.project.projectfirst.dto.QuestionDto;
+import com.haili.project.projectfirst.dto.QuestionQueryDto;
 import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
 import com.haili.project.projectfirst.exception.CustomizeException;
 import com.haili.project.projectfirst.mapper.QuestionExtendMapper;
@@ -39,14 +40,22 @@ public class QuestionServiceImpl implements QuestionService {
     private QuestionExtendMapper questionExtendMapper;
 
     @Override
-    public PageInformationDto list(String accountId, Integer currentPage, Integer pageSize) {
+    public PageInformationDto list(String accountId, Integer currentPage, Integer pageSize, String search) {
+        //搜索实现
+        if (StringUtils.isNotBlank(search)) {
+            String[] searchs = StringUtils.split(search, " ");
+            search = Arrays.stream(searchs).collect(Collectors.joining("|"));
+        }
+
         //获取分页的真实数据
         PageInformationDto<QuestionDto> pageInformationDto = new PageInformationDto<>();
         //分页数据上传
         QuestionExample questionExample1 = new QuestionExample();
         questionExample1.createCriteria()
                 .andCreatorEqualTo(accountId);
-        Integer total = (int)questionMapper.countByExample(questionExample1);
+        QuestionQueryDto questionQueryDto = new QuestionQueryDto();
+        questionQueryDto.setSearch(search);
+        Integer total = questionExtendMapper.countByExample(questionQueryDto);
         //获取总页数
         int totalPage;
         if (total % pageSize == 0) {
@@ -66,9 +75,9 @@ public class QuestionServiceImpl implements QuestionService {
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
         int offSize = pageSize * (currentPage - 1);
-        QuestionExample questionExample = new QuestionExample();
-        questionExample.setOrderByClause("gmt_create desc");
-        List<Question> questions = questionMapper.selectByExampleWithBLOBsWithRowbounds(questionExample, new RowBounds(offSize, pageSize));
+        questionQueryDto.setCurrantPage(offSize);
+        questionQueryDto.setPageSize(pageSize);
+        List<Question> questions = questionExtendMapper.selectBySearch(questionQueryDto);
         if (CollectionUtils.isEmpty(questions)) {
             return new PageInformationDto<>();
         }

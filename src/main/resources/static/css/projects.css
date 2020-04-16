@@ -185,3 +185,7 @@ body{
     margin-top: 5px;
     margin-left: 10px;
 }
+/*底部内容*/
+.text-foot {
+    text-align: center;
+}

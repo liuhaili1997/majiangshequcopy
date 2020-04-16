@@ -1,9 +1,16 @@
 package com.haili.project.projectfirst.controller;
 
 import com.haili.project.projectfirst.dto.FileDto;
+import com.haili.project.projectfirst.provider.UcloudProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 /**
  * 选择图片时显示文件夹
@@ -25,9 +32,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class FileController {
 
+    @Autowired
+    private UcloudProvider ucloudProvider;
+
     @ResponseBody
     @RequestMapping("/file/upload")
-    public FileDto upload() {
+    public FileDto upload(HttpServletRequest request) {
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        //input 本地文件的上传name=editormd-image-file
+        MultipartFile file = multipartRequest.getFile("editormd-image-file");
+        try {
+            String fileName = ucloudProvider.upload(file.getInputStream(), file.getContentType(), file.getOriginalFilename());
+            FileDto fileDto = new FileDto();
+            fileDto.setSuccess(1);
+            fileDto.setUrl(fileName);
+            return fileDto;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         FileDto fileDto = new FileDto();
         fileDto.setSuccess(1);
         fileDto.setUrl("/images/wechat.png");
