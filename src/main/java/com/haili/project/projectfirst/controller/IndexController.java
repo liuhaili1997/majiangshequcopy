@@ -1,24 +1,15 @@
 package com.haili.project.projectfirst.controller;
 
 import com.haili.project.projectfirst.dto.PageInformationDto;
-import com.haili.project.projectfirst.dto.QuestionDto;
-import com.haili.project.projectfirst.mapper.QuestionMapper;
-import com.haili.project.projectfirst.mapper.UserMapper;
-import com.haili.project.projectfirst.model.Question;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.service.QuestionService;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * @author lhl

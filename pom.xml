@@ -89,6 +89,14 @@
             <version>1.4.200</version>
         </dependency>
 
+        <!--这是迁移数据库的mysql
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.19</version>
+        </dependency>
+        -->
+
         <!--Ucloud 将文件创建在云仓库-->
         <dependency>
             <groupId>cn.ucloud.ufile</groupId>

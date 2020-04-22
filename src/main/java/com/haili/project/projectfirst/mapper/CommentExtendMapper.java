@@ -1,7 +1,6 @@
 package com.haili.project.projectfirst.mapper;
 
 import com.haili.project.projectfirst.model.Comment;
-import com.haili.project.projectfirst.model.Question;
 
 /**
  * comment表的额外方法

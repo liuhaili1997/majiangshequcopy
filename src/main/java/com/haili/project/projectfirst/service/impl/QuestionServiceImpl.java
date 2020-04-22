@@ -74,7 +74,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
-        int offSize = pageSize * (currentPage - 1);
+        int offSize = currentPage < 1 ? 0 : pageSize * (currentPage - 1);
         questionQueryDto.setCurrantPage(offSize);
         questionQueryDto.setPageSize(pageSize);
         List<Question> questions = questionExtendMapper.selectBySearch(questionQueryDto);
@@ -142,7 +142,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
-        int offSize = pageSize * (currentPage - 1);
+        int offSize = currentPage < 1 ? 0 : pageSize * (currentPage - 1);
         QuestionExample questionExample = new QuestionExample();
         questionExample.createCriteria()
                 .andCreatorEqualTo(accountId);

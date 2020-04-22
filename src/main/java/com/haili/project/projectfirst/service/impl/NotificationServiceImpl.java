@@ -7,7 +7,6 @@ import com.haili.project.projectfirst.enums.NotificationEnums;
 import com.haili.project.projectfirst.enums.NotificationStatusEnums;
 import com.haili.project.projectfirst.exception.CustomizeException;
 import com.haili.project.projectfirst.mapper.NotificationMapper;
-import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.*;
 import com.haili.project.projectfirst.service.NotificationService;
 import org.apache.ibatis.session.RowBounds;
@@ -28,10 +27,6 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Autowired
     private NotificationMapper notificationMapper;
-
-    @Autowired
-    private UserMapper userMapper;
-
 
     @Override
     public PageInformationDto list(String accountId, Integer currentPage, Integer pageSize) {
@@ -60,7 +55,7 @@ public class NotificationServiceImpl implements NotificationService {
         }
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
-        int offSize = pageSize * (currentPage - 1);
+        int offSize = currentPage < 1 ? 0 : pageSize * (currentPage - 1);
         NotificationExample notificationExample1 = new NotificationExample();
         notificationExample1.setOrderByClause("gmt_create desc");
         notificationExample1.createCriteria()
@@ -77,8 +72,6 @@ public class NotificationServiceImpl implements NotificationService {
             notificationDto.setNotifyType(NotificationEnums.nameOfType(notification.getType()));
             notificationDtoList.add(notificationDto);
         }
-
-
         pageInformationDto.setData(notificationDtoList);
 
         return pageInformationDto;

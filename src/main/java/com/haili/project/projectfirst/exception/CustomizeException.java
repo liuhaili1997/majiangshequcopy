@@ -1,6 +1,5 @@
 package com.haili.project.projectfirst.exception;
 
-import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
 import com.haili.project.projectfirst.enums.InterCustomizeErrorEnums;
 
 /**

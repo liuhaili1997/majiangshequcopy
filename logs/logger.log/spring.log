@@ -1,0 +1,4 @@
+2020-04-22 18:20:11.246  INFO 19168 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : Starting ProjectfirstApplication on DESKTOP-1PG5FTB with PID 19168 (C:\Users\lhl03\Videos\git\repository\projectfirst\target\classes started by lhl03 in C:\Users\lhl03\Videos\git\repository\projectfirst)
+2020-04-22 18:20:11.260  INFO 19168 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : No active profile set, falling back to default profiles: default
+2020-04-22 18:20:11.357  INFO 19168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-04-22 18:20:11.358  INFO 19168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'

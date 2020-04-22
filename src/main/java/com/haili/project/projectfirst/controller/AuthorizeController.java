@@ -104,7 +104,6 @@ public class AuthorizeController {
         cookie.setPath("/");
         //重新写入将覆盖之前的cookie
         response.addCookie(cookie);
-
         return "redirect:/";
     }
 }
