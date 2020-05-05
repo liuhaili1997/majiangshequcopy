@@ -40,7 +40,7 @@ public class QuestionServiceImpl implements QuestionService {
     private QuestionExtendMapper questionExtendMapper;
 
     @Override
-    public PageInformationDto list(String accountId, Integer currentPage, Integer pageSize, String search) {
+    public PageInformationDto list(Integer currentPage, Integer pageSize, String search) {
         //搜索实现
         if (StringUtils.isNotBlank(search)) {
             String[] searchs = StringUtils.split(search, " ");
@@ -50,9 +50,6 @@ public class QuestionServiceImpl implements QuestionService {
         //获取分页的真实数据
         PageInformationDto<QuestionDto> pageInformationDto = new PageInformationDto<>();
         //分页数据上传
-        QuestionExample questionExample1 = new QuestionExample();
-        questionExample1.createCriteria()
-                .andCreatorEqualTo(accountId);
         QuestionQueryDto questionQueryDto = new QuestionQueryDto();
         questionQueryDto.setSearch(search);
         Integer total = questionExtendMapper.countByExample(questionQueryDto);

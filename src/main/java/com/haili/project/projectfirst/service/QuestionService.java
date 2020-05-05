@@ -15,13 +15,12 @@ public interface QuestionService {
     /**
      * 获取整张的数据库的表来展示在首页上
      *
-     * @param accountId   账户id
-     * @param currentPage 当前页
-     * @param pageSize    每页尺寸
-     * @param search
+     * @param currentPage   当前页
+     * @param pageSize      每页尺寸
+     * @param search        搜索条件
      * @return 数据集合
      */
-    PageInformationDto list(String accountId, Integer currentPage, Integer pageSize, String search);
+    PageInformationDto list(Integer currentPage, Integer pageSize, String search);
 
     /**
      * 根据当前用户获取用户的提问

@@ -1,4 +1,976 @@
-2020-04-22 18:20:11.246  INFO 19168 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : Starting ProjectfirstApplication on DESKTOP-1PG5FTB with PID 19168 (C:\Users\lhl03\Videos\git\repository\projectfirst\target\classes started by lhl03 in C:\Users\lhl03\Videos\git\repository\projectfirst)
-2020-04-22 18:20:11.260  INFO 19168 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : No active profile set, falling back to default profiles: default
-2020-04-22 18:20:11.357  INFO 19168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-04-22 18:20:11.358  INFO 19168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-04-27 17:58:59.680  INFO 17260 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : Starting ProjectfirstApplication on DESKTOP-1PG5FTB with PID 17260 (C:\Users\lhl03\Videos\git\repository\projectfirst\target\classes started by lhl03 in C:\Users\lhl03\Videos\git\repository\projectfirst)
+2020-04-27 17:58:59.696  INFO 17260 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : No active profile set, falling back to default profiles: default
+2020-04-27 17:58:59.810  INFO 17260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-04-27 17:58:59.811  INFO 17260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-04-27 17:59:01.190  INFO 17260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-04-27 17:59:01.201  INFO 17260 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-27 17:59:01.201  INFO 17260 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-27 17:59:01.301  INFO 17260 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-27 17:59:01.301  INFO 17260 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1490 ms
+2020-04-27 17:59:01.343  INFO 17260 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-27 17:59:01.527  INFO 17260 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-27 17:59:01.534  INFO 17260 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/projects'
+2020-04-27 17:59:02.169  INFO 17260 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-27 17:59:02.250  INFO 17260 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-04-27 17:59:02.688  INFO 17260 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-04-27 17:59:02.753  INFO 17260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-04-27 17:59:02.757  INFO 17260 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : Started ProjectfirstApplication in 3.598 seconds (JVM running for 4.485)
+2020-04-27 17:59:10.868  INFO 17260 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-27 17:59:10.868  INFO 17260 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-27 17:59:10.873  INFO 17260 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-04-27 17:59:10.935 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:10.954 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:10.971 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:10.995 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.Q.countByExample               : ==>  Preparing: select count(*) from question 
+2020-04-27 17:59:10.996 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.Q.countByExample               : ==> Parameters: 
+2020-04-27 17:59:10.998 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.Q.countByExample               : <==      Total: 1
+2020-04-27 17:59:10.998 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.Q.selectBySearch               : ==>  Preparing: select * from question order by gmt_create desc limit ?,? 
+2020-04-27 17:59:10.999 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.Q.selectBySearch               : ==> Parameters: 0(Integer), 5(Integer)
+2020-04-27 17:59:11.003 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.Q.selectBySearch               : <==      Total: 5
+2020-04-27 17:59:11.006 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( ACCOUNT_ID in ( ? ) ) 
+2020-04-27 17:59:11.008 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 58426311(String)
+2020-04-27 17:59:11.009 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:11.389 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:11.389 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:11.389 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:11.389 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:11.389 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:11.390 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:11.390 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:11.390 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:11.390 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:11.391 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:11.392 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:11.393 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:11.390 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:11.392 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:11.396 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:11.474 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:11.474 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:11.475 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:12.888 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:12.889 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:12.890 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:12.901 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:12.902 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:12.902 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:15.753 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:15.753 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:15.754 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:15.756 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.countByExample               : ==>  Preparing: select count(*) from question WHERE title regexp ? 
+2020-04-27 17:59:15.758 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.countByExample               : ==> Parameters: (String)
+2020-04-27 17:59:15.761 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.countByExample               : <==      Total: 1
+2020-04-27 17:59:15.762 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.selectBySearch               : ==>  Preparing: select * from question WHERE title regexp ? order by gmt_create desc limit ?,? 
+2020-04-27 17:59:15.763 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.selectBySearch               : ==> Parameters: (String), 5(Integer), 5(Integer)
+2020-04-27 17:59:15.764 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.selectBySearch               : <==      Total: 3
+2020-04-27 17:59:15.766 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( ACCOUNT_ID in ( ? ) ) 
+2020-04-27 17:59:15.767 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 58426311(String)
+2020-04-27 17:59:15.768 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:15.809 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:15.809 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:15.809 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:15.810 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:15.810 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:15.810 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:15.810 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:15.811 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:15.810 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:15.812 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:15.813 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:15.813 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:15.813 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:15.815 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:15.815 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:15.868 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:15.869 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:15.869 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:19.428 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:19.428 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:19.429 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:19.431 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.Q.countByExample               : ==>  Preparing: select count(*) from question WHERE title regexp ? 
+2020-04-27 17:59:19.432 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.Q.countByExample               : ==> Parameters: (String)
+2020-04-27 17:59:19.432 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.Q.countByExample               : <==      Total: 1
+2020-04-27 17:59:19.433 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.Q.selectBySearch               : ==>  Preparing: select * from question WHERE title regexp ? order by gmt_create desc limit ?,? 
+2020-04-27 17:59:19.433 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.Q.selectBySearch               : ==> Parameters: (String), 0(Integer), 5(Integer)
+2020-04-27 17:59:19.435 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.Q.selectBySearch               : <==      Total: 5
+2020-04-27 17:59:19.435 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( ACCOUNT_ID in ( ? ) ) 
+2020-04-27 17:59:19.436 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 58426311(String)
+2020-04-27 17:59:19.437 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:19.471 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:19.474 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:19.474 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:19.473 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:19.475 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:19.475 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:19.475 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:19.474 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:19.475 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:19.474 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:19.476 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:19.476 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:19.477 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:19.477 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:19.478 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:19.521 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:19.521 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:19.521 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:21.785 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:21.785 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:21.786 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:21.788 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.Q.countByExample               : ==>  Preparing: select count(*) from question 
+2020-04-27 17:59:21.788 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.Q.countByExample               : ==> Parameters: 
+2020-04-27 17:59:21.788 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.Q.countByExample               : <==      Total: 1
+2020-04-27 17:59:21.789 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.Q.selectBySearch               : ==>  Preparing: select * from question order by gmt_create desc limit ?,? 
+2020-04-27 17:59:21.789 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.Q.selectBySearch               : ==> Parameters: 0(Integer), 5(Integer)
+2020-04-27 17:59:21.794 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.Q.selectBySearch               : <==      Total: 5
+2020-04-27 17:59:21.795 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( ACCOUNT_ID in ( ? ) ) 
+2020-04-27 17:59:21.795 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 58426311(String)
+2020-04-27 17:59:21.796 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:21.835 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:21.836 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:21.836 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:21.836 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:21.836 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:21.836 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:21.836 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:21.836 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:21.836 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:21.837 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:21.837 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:21.837 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:21.839 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:21.839 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:21.840 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:21.895 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:21.895 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:21.895 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:23.678 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:23.679 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:23.679 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:23.688 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:23.688 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:23.689 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:23.689 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.Q.countByExample               : ==>  Preparing: select count(*) from question 
+2020-04-27 17:59:23.690 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.Q.countByExample               : ==> Parameters: 
+2020-04-27 17:59:23.690 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.Q.countByExample               : <==      Total: 1
+2020-04-27 17:59:23.691 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.Q.selectBySearch               : ==>  Preparing: select * from question order by gmt_create desc limit ?,? 
+2020-04-27 17:59:23.691 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.Q.selectBySearch               : ==> Parameters: 0(Integer), 5(Integer)
+2020-04-27 17:59:23.692 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.Q.selectBySearch               : <==      Total: 5
+2020-04-27 17:59:23.693 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( ACCOUNT_ID in ( ? ) ) 
+2020-04-27 17:59:23.693 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 58426311(String)
+2020-04-27 17:59:23.693 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:23.723 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:23.722 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:23.765 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:23.765 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:23.765 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:26.426 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:26.426 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:26.427 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:26.433 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:26.433 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:26.434 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:26.434 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.countByExample               : ==>  Preparing: select count(*) from question 
+2020-04-27 17:59:26.434 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.countByExample               : ==> Parameters: 
+2020-04-27 17:59:26.435 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.countByExample               : <==      Total: 1
+2020-04-27 17:59:26.435 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.selectBySearch               : ==>  Preparing: select * from question order by gmt_create desc limit ?,? 
+2020-04-27 17:59:26.435 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.selectBySearch               : ==> Parameters: 0(Integer), 5(Integer)
+2020-04-27 17:59:26.437 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.Q.selectBySearch               : <==      Total: 5
+2020-04-27 17:59:26.437 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( ACCOUNT_ID in ( ? ) ) 
+2020-04-27 17:59:26.438 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 58426311(String)
+2020-04-27 17:59:26.439 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:26.470 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:26.470 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:26.470 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:26.470 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:26.470 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:26.471 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:26.515 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:26.515 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:26.515 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:28.623 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:28.624 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 0e285d6f-ad3a-4961-826a-1910844c8f53(String)
+2020-04-27 17:59:28.624 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 0
+2020-04-27 17:59:31.766 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( ACCOUNT_ID = ? ) 
+2020-04-27 17:59:31.767 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 58426311(String)
+2020-04-27 17:59:31.767 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:31.768 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.U.updateByPrimaryKeySelective  : ==>  Preparing: update USER SET ACCOUNT_ID = ?, NAME = ?, TOKEN = ?, GMT_CREATE = ?, GMT_MODIFIED = ?, AVATAR = ? where ID = ? 
+2020-04-27 17:59:31.769 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.U.updateByPrimaryKeySelective  : ==> Parameters: 58426311(String), 海蓝时见鲸(String), d052ac92-5abc-4576-b35e-10e1c1b36551(String), 1586833838426(Long), 1587981571767(Long), https://avatars2.githubusercontent.com/u/58426311?v=4(String), 1(Long)
+2020-04-27 17:59:31.773 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.U.updateByPrimaryKeySelective  : <==    Updates: 1
+2020-04-27 17:59:31.778 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:31.778 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:31.778 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:31.782 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:31.783 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:31.784 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:31.784 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.Q.countByExample               : ==>  Preparing: select count(*) from question 
+2020-04-27 17:59:31.785 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.Q.countByExample               : ==> Parameters: 
+2020-04-27 17:59:31.785 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.Q.countByExample               : <==      Total: 1
+2020-04-27 17:59:31.785 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.Q.selectBySearch               : ==>  Preparing: select * from question order by gmt_create desc limit ?,? 
+2020-04-27 17:59:31.786 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.Q.selectBySearch               : ==> Parameters: 0(Integer), 5(Integer)
+2020-04-27 17:59:31.787 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.Q.selectBySearch               : <==      Total: 5
+2020-04-27 17:59:31.788 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( ACCOUNT_ID in ( ? ) ) 
+2020-04-27 17:59:31.788 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 58426311(String)
+2020-04-27 17:59:31.788 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:31.823 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:31.823 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:31.823 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:31.823 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:31.823 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:31.824 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:31.824 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:31.824 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:31.823 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:31.826 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:31.826 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:31.826 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:31.826 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:31.826 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:31.826 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:31.826 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:31.827 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:31.828 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:31.828 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:31.878 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:31.878 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:31.878 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:31.879 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:31.879 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:31.879 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:58.949 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:58.949 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:58.951 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:58.953 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:58.954 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:58.954 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:58.955 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? ) 
+2020-04-27 17:59:58.956 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String)
+2020-04-27 17:59:58.956 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:58.956 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.selectByExampleWithRowbounds : ==>  Preparing: select ID, NOTIFIER, RECEIVER, OUTER_ID, TYPE, GMT_CREATE, STATUS, NOTIFIER_NAME, OUTER_TITLE from NOTIFICATION WHERE ( RECEIVER = ? ) order by gmt_create desc 
+2020-04-27 17:59:58.957 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.selectByExampleWithRowbounds : ==> Parameters: 58426311(String)
+2020-04-27 17:59:58.961 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:58.962 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:58.962 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:58.997 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:58.997 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:58.998 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:58.998 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:58.998 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:58.998 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:58.998 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:58.998 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:58.998 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:58.998 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:58.999 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:58.999 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:58.999 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:58.999 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:58.999 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:58.999 DEBUG 17260 --- [http-nio-8887-exec-1] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:58.998 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:58.999 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:58.999 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:59.000 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:59.000 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:59.000 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:59.000 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:59.000 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:59.000 DEBUG 17260 --- [http-nio-8887-exec-6] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:59.000 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:59.000 DEBUG 17260 --- [http-nio-8887-exec-5] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:59.003 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:59.004 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:59.005 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 17:59:59.055 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 17:59:59.055 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 17:59:59.055 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 17:59:59.056 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 17:59:59.056 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 17:59:59.056 DEBUG 17260 --- [http-nio-8887-exec-3] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:02.282 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:02.283 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:02.283 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:02.284 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:02.285 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:02.287 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:02.307 ERROR 17260 --- [http-nio-8887-exec-4] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8887-exec-4] Exception processing template "publish": An error happened during template parsing (template: "class path resource [templates/publish.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/publish.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+Caused by: org.attoparser.ParseException: Attribute name cannot be null or empty
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	... 48 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Attribute name cannot be null or empty
+	at org.thymeleaf.engine.AttributeName.<init>(AttributeName.java:51) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.<init>(HTMLAttributeName.java:76) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.forName(HTMLAttributeName.java:63) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.buildHTMLAttributeName(AttributeNames.java:292) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.access$300(AttributeNames.java:37) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.storeAttribute(AttributeNames.java:693) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.getAttribute(AttributeNames.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.forHTMLName(AttributeNames.java:480) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.storeAttribute(AttributeDefinitions.java:788) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.getAttribute(AttributeDefinitions.java:677) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forHTMLName(AttributeDefinitions.java:405) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forName(AttributeDefinitions.java:336) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleAttribute(TemplateHandlerAdapterMarkupHandler.java:492) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:360) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleAttribute(OutputExpressionInlinePreProcessorHandler.java:260) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleAttribute(HtmlElement.java:250) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleAttribute(HtmlMarkupHandler.java:529) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:593) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	... 50 common frames omitted
+
+2020-04-27 18:00:02.310 ERROR 17260 --- [http-nio-8887-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/publish.html]")] with root cause
+
+java.lang.IllegalArgumentException: Attribute name cannot be null or empty
+	at org.thymeleaf.engine.AttributeName.<init>(AttributeName.java:51) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.<init>(HTMLAttributeName.java:76) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.forName(HTMLAttributeName.java:63) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.buildHTMLAttributeName(AttributeNames.java:292) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.access$300(AttributeNames.java:37) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.storeAttribute(AttributeNames.java:693) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.getAttribute(AttributeNames.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.forHTMLName(AttributeNames.java:480) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.storeAttribute(AttributeDefinitions.java:788) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.getAttribute(AttributeDefinitions.java:677) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forHTMLName(AttributeDefinitions.java:405) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forName(AttributeDefinitions.java:336) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleAttribute(TemplateHandlerAdapterMarkupHandler.java:492) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:360) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleAttribute(OutputExpressionInlinePreProcessorHandler.java:260) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleAttribute(HtmlElement.java:250) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleAttribute(HtmlMarkupHandler.java:529) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:593) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+
+2020-04-27 18:00:02.311 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:02.312 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:02.312 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:02.313 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:02.313 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:02.313 DEBUG 17260 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:02.353 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:02.353 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:02.353 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:02.353 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:02.353 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:02.354 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:02.354 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:02.354 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:02.353 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:02.354 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:02.355 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:02.354 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:02.355 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:02.356 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:02.357 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:02.355 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:02.357 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:02.357 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:02.357 DEBUG 17260 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:02.358 DEBUG 17260 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:02.358 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:02.358 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:02.358 DEBUG 17260 --- [http-nio-8887-exec-10] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:02.359 DEBUG 17260 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:02.360 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:02.360 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:02.361 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:02.362 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:02.362 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:02.363 DEBUG 17260 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:14.978  INFO 4200 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : Starting ProjectfirstApplication on DESKTOP-1PG5FTB with PID 4200 (C:\Users\lhl03\Videos\git\repository\projectfirst\target\classes started by lhl03 in C:\Users\lhl03\Videos\git\repository\projectfirst)
+2020-04-27 18:00:14.989  INFO 4200 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : No active profile set, falling back to default profiles: default
+2020-04-27 18:00:15.085  INFO 4200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-04-27 18:00:15.085  INFO 4200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-04-27 18:00:18.020  INFO 4200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-04-27 18:00:18.039  INFO 4200 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-27 18:00:18.039  INFO 4200 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-27 18:00:18.157  INFO 4200 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-27 18:00:18.158  INFO 4200 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3073 ms
+2020-04-27 18:00:18.202  INFO 4200 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-27 18:00:18.519  INFO 4200 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-27 18:00:18.528  INFO 4200 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/projects'
+2020-04-27 18:00:19.398  INFO 4200 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-27 18:00:19.542  INFO 4200 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-04-27 18:00:19.907  INFO 4200 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-04-27 18:00:19.973  INFO 4200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-04-27 18:00:19.978  INFO 4200 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : Started ProjectfirstApplication in 5.737 seconds (JVM running for 6.956)
+2020-04-27 18:00:35.504  INFO 4200 --- [http-nio-8887-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-27 18:00:35.505  INFO 4200 --- [http-nio-8887-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-27 18:00:35.511  INFO 4200 --- [http-nio-8887-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-04-27 18:00:35.578 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:35.597 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:35.611 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:35.619 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:35.621 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:35.626 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:35.646 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.Q.countByExample               : ==>  Preparing: select count(*) from question 
+2020-04-27 18:00:35.647 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.Q.countByExample               : ==> Parameters: 
+2020-04-27 18:00:35.648 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.Q.countByExample               : <==      Total: 1
+2020-04-27 18:00:35.649 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.Q.selectBySearch               : ==>  Preparing: select * from question order by gmt_create desc limit ?,? 
+2020-04-27 18:00:35.651 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.Q.selectBySearch               : ==> Parameters: 0(Integer), 5(Integer)
+2020-04-27 18:00:35.657 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.Q.selectBySearch               : <==      Total: 5
+2020-04-27 18:00:35.660 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( ACCOUNT_ID in ( ? ) ) 
+2020-04-27 18:00:35.662 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: 58426311(String)
+2020-04-27 18:00:35.662 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:36.067 DEBUG 4200 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:36.067 DEBUG 4200 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:36.067 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:36.067 DEBUG 4200 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:36.067 DEBUG 4200 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:36.068 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:36.068 DEBUG 4200 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:36.068 DEBUG 4200 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:36.068 DEBUG 4200 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:36.068 DEBUG 4200 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:36.069 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:36.070 DEBUG 4200 --- [http-nio-8887-exec-1] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:36.070 DEBUG 4200 --- [http-nio-8887-exec-6] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:36.070 DEBUG 4200 --- [http-nio-8887-exec-3] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:36.070 DEBUG 4200 --- [http-nio-8887-exec-5] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:36.072 DEBUG 4200 --- [http-nio-8887-exec-1] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:36.072 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:36.072 DEBUG 4200 --- [http-nio-8887-exec-3] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:36.072 DEBUG 4200 --- [http-nio-8887-exec-6] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:36.072 DEBUG 4200 --- [http-nio-8887-exec-5] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:36.073 DEBUG 4200 --- [http-nio-8887-exec-1] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:36.073 DEBUG 4200 --- [http-nio-8887-exec-5] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:36.073 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:36.073 DEBUG 4200 --- [http-nio-8887-exec-6] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:36.073 DEBUG 4200 --- [http-nio-8887-exec-3] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:36.073 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:36.073 DEBUG 4200 --- [http-nio-8887-exec-5] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:36.073 DEBUG 4200 --- [http-nio-8887-exec-1] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:36.073 DEBUG 4200 --- [http-nio-8887-exec-6] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:36.074 DEBUG 4200 --- [http-nio-8887-exec-3] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:37.203 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:37.205 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:37.206 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:37.208 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:37.208 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:37.208 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:50.901 ERROR 4200 --- [http-nio-8887-exec-7] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8887-exec-7] Exception processing template "publish": An error happened during template parsing (template: "class path resource [templates/publish.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/publish.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+Caused by: org.attoparser.ParseException: Attribute name cannot be null or empty
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	... 48 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Attribute name cannot be null or empty
+	at org.thymeleaf.engine.AttributeName.<init>(AttributeName.java:51) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.<init>(HTMLAttributeName.java:76) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.forName(HTMLAttributeName.java:63) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.buildHTMLAttributeName(AttributeNames.java:292) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.access$300(AttributeNames.java:37) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.storeAttribute(AttributeNames.java:693) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.getAttribute(AttributeNames.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.forHTMLName(AttributeNames.java:480) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.storeAttribute(AttributeDefinitions.java:788) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.getAttribute(AttributeDefinitions.java:677) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forHTMLName(AttributeDefinitions.java:405) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forName(AttributeDefinitions.java:336) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleAttribute(TemplateHandlerAdapterMarkupHandler.java:492) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:360) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleAttribute(OutputExpressionInlinePreProcessorHandler.java:260) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleAttribute(HtmlElement.java:250) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleAttribute(HtmlMarkupHandler.java:529) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:593) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	... 50 common frames omitted
+
+2020-04-27 18:00:50.904 ERROR 4200 --- [http-nio-8887-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/publish.html]")] with root cause
+
+java.lang.IllegalArgumentException: Attribute name cannot be null or empty
+	at org.thymeleaf.engine.AttributeName.<init>(AttributeName.java:51) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.<init>(HTMLAttributeName.java:76) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.forName(HTMLAttributeName.java:63) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.buildHTMLAttributeName(AttributeNames.java:292) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.access$300(AttributeNames.java:37) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.storeAttribute(AttributeNames.java:693) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.getAttribute(AttributeNames.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.forHTMLName(AttributeNames.java:480) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.storeAttribute(AttributeDefinitions.java:788) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.getAttribute(AttributeDefinitions.java:677) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forHTMLName(AttributeDefinitions.java:405) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forName(AttributeDefinitions.java:336) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleAttribute(TemplateHandlerAdapterMarkupHandler.java:492) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:360) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleAttribute(OutputExpressionInlinePreProcessorHandler.java:260) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleAttribute(HtmlElement.java:250) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleAttribute(HtmlMarkupHandler.java:529) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:593) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+
+2020-04-27 18:00:50.908 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:50.909 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:50.909 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:50.911 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:50.911 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:50.912 DEBUG 4200 --- [http-nio-8887-exec-7] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:50.941 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:50.941 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:50.941 DEBUG 4200 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, BIO, AVATAR from USER WHERE ( TOKEN = ? ) 
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : ==> Parameters: d052ac92-5abc-4576-b35e-10e1c1b36551(String)
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-9] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-10] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-8] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:50.942 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.UserMapper.selectByExample     : <==      Total: 1
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-10] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-10] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:50.943 DEBUG 4200 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : ==> Parameters: 58426311(String), 0(Integer)
+2020-04-27 18:00:50.944 DEBUG 4200 --- [http-nio-8887-exec-8] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:50.944 DEBUG 4200 --- [http-nio-8887-exec-9] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:50.944 DEBUG 4200 --- [http-nio-8887-exec-2] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:50.944 DEBUG 4200 --- [http-nio-8887-exec-10] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:00:50.944 DEBUG 4200 --- [http-nio-8887-exec-4] c.h.p.p.m.N.countByExample               : <==      Total: 1
+2020-04-27 18:02:26.589  INFO 4200 --- [Thread-15] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-27 18:02:26.591  INFO 4200 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-04-27 18:02:26.799  INFO 4200 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-04-27 18:02:27.182  INFO 4200 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : Starting ProjectfirstApplication on DESKTOP-1PG5FTB with PID 4200 (C:\Users\lhl03\Videos\git\repository\projectfirst\target\classes started by lhl03 in C:\Users\lhl03\Videos\git\repository\projectfirst)
+2020-04-27 18:02:27.183  INFO 4200 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : No active profile set, falling back to default profiles: default
+2020-04-27 18:02:27.686  INFO 4200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-04-27 18:02:27.687  INFO 4200 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-27 18:02:27.687  INFO 4200 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-27 18:02:27.715  INFO 4200 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-27 18:02:27.716  INFO 4200 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 529 ms
+2020-04-27 18:02:27.736  INFO 4200 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-04-27 18:02:27.746  INFO 4200 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-04-27 18:02:27.746  INFO 4200 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/projects'
+2020-04-27 18:02:27.937  INFO 4200 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-27 18:02:27.952  INFO 4200 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-04-27 18:02:28.066  INFO 4200 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-04-27 18:02:28.084  INFO 4200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-04-27 18:02:28.085  INFO 4200 --- [restartedMain] c.h.p.p.ProjectfirstApplication          : Started ProjectfirstApplication in 0.944 seconds (JVM running for 135.063)
+2020-04-27 18:02:28.086  INFO 4200 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-04-27 18:02:51.476  INFO 4200 --- [http-nio-8887-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-27 18:02:51.477  INFO 4200 --- [http-nio-8887-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-27 18:02:51.481  INFO 4200 --- [http-nio-8887-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-04-27 18:02:57.819 ERROR 4200 --- [http-nio-8887-exec-8] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8887-exec-8] Exception processing template "publish": An error happened during template parsing (template: "class path resource [templates/publish.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/publish.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+Caused by: org.attoparser.ParseException: Attribute name cannot be null or empty
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	... 48 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Attribute name cannot be null or empty
+	at org.thymeleaf.engine.AttributeName.<init>(AttributeName.java:51) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.<init>(HTMLAttributeName.java:76) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.forName(HTMLAttributeName.java:63) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.buildHTMLAttributeName(AttributeNames.java:292) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.access$300(AttributeNames.java:37) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.storeAttribute(AttributeNames.java:693) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.getAttribute(AttributeNames.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.forHTMLName(AttributeNames.java:480) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.storeAttribute(AttributeDefinitions.java:788) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.getAttribute(AttributeDefinitions.java:677) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forHTMLName(AttributeDefinitions.java:405) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forName(AttributeDefinitions.java:336) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleAttribute(TemplateHandlerAdapterMarkupHandler.java:492) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:360) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleAttribute(OutputExpressionInlinePreProcessorHandler.java:260) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleAttribute(HtmlElement.java:250) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleAttribute(HtmlMarkupHandler.java:529) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:593) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	... 50 common frames omitted
+
+2020-04-27 18:02:57.821 ERROR 4200 --- [http-nio-8887-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/publish.html]")] with root cause
+
+java.lang.IllegalArgumentException: Attribute name cannot be null or empty
+	at org.thymeleaf.engine.AttributeName.<init>(AttributeName.java:51) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.<init>(HTMLAttributeName.java:76) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.HTMLAttributeName.forName(HTMLAttributeName.java:63) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.buildHTMLAttributeName(AttributeNames.java:292) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.access$300(AttributeNames.java:37) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.storeAttribute(AttributeNames.java:693) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames$AttributeNamesRepository.getAttribute(AttributeNames.java:607) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeNames.forHTMLName(AttributeNames.java:480) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.storeAttribute(AttributeDefinitions.java:788) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions$AttributeDefinitionRepository.getAttribute(AttributeDefinitions.java:677) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forHTMLName(AttributeDefinitions.java:405) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.AttributeDefinitions.forName(AttributeDefinitions.java:336) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleAttribute(TemplateHandlerAdapterMarkupHandler.java:492) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:360) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleAttribute(OutputExpressionInlinePreProcessorHandler.java:260) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleAttribute(InlinedOutputExpressionMarkupHandler.java:205) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleAttribute(HtmlElement.java:250) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleAttribute(HtmlMarkupHandler.java:529) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:593) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:300) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_231]
+
+2020-04-27 18:03:53.235  INFO 4200 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-27 18:03:53.236  INFO 4200 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2020-04-27 18:03:53.238  INFO 4200 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

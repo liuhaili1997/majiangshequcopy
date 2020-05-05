@@ -29,9 +29,9 @@ public class IndexController {
         //获取session内部的user，判断是否存在，才有权限
         User user = (User) request.getSession().getAttribute("user");
 
-        PageInformationDto questionList = questionService.list(user.getAccountId(), currentPage, pageSize,search);
-            model.addAttribute("questionList", questionList);
-            model.addAttribute("search", search);
+        PageInformationDto questionList = questionService.list(currentPage, pageSize, search);
+        model.addAttribute("questionList", questionList);
+        model.addAttribute("search", search);
         return "index";
     }
 }
