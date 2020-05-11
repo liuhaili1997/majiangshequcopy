@@ -6,6 +6,10 @@ body{
     background-color: white;
     margin: 30px;
 }
+.main-index{
+    width: 1200px;
+    margin-left: 14%;
+}
 
 .btn-publish {
     float: right;
@@ -188,4 +192,47 @@ body{
 /*底部内容*/
 .text-foot {
     text-align: center;
+}
+
+/*index 内容*/
+.index-mean {
+    display: block;
+    width: 1024px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /*超出部分用...代替*/
+}
+/*register*/
+.register-body {
+    margin-bottom: 40px;
+}
+.justify-content-center {
+    justify-content: center!important;
+}
+.card-body {
+    padding: 1.875rem;
+    margin: 0 auto;
+    min-height: 1px;
+    width: 410px;
+    height: 360px;
+    background-color: #dcdcdc;
+    border-radius: 3px;
+}
+.register-btn {
+    width: 100%;
+    margin-left: 26px;
+}
+#imgHidden {
+    width: 100px;
+    height: 100px;
+}
+
+.card-body-login {
+    padding: 1.875rem;
+    margin: 0 auto;
+    min-height: 1px;
+    width: 410px;
+    height: 270px;
+    background-color: #dcdcdc;
+    border-radius: 3px;
 }

@@ -8,12 +8,12 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">校园社区</span>
+                    <span class="sr-only">校园社交</span>
                     <!--<span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>-->
                 </button>
-                <a class="navbar-brand" href="/">校园社区</a>
+                <a class="navbar-brand" href="/">校园社交</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -44,7 +44,7 @@
                     <li th:if="${session.user != null}">
                         <a href="/publish">分享</a>
                     </li>
-                    <li>
+                    <li th:if="${session.user != null}">
                         <a href="/profile/replies">通知<span class="badge badge-background-color" th:text="${session.unReadNotificationCount}"></span></a>
                     </li>
                     <li class="dropdown" th:if="${session.user != null}">
@@ -53,14 +53,24 @@
                             <span th:text="${session.user.getName()}"></span>
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/profile/questionList">我的分享</a></li>
-                            <li><a href="#">云盘</a></li>
+                            <li><a href="/profile/questionList">个人空间</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/logout">退出登录</a></li>
                         </ul>
                     </li>
                     <li th:if="${session.user == null}">
-                        <a href="https://github.com/login/oauth/authorize?client_id=f08ab0ddf1754b1b31de&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false" >
+                            <span>登录方式</span>
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="https://github.com/login/oauth/authorize?client_id=f08ab0ddf1754b1b31de&redirect_uri=http://localhost:8887/callback&scope=user&state=1">GitHub授权登录</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/login">本地登录</a></li>
+                            <li><a href="/register">注册</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>

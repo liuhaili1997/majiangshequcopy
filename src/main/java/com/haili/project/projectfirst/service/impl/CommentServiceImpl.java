@@ -62,8 +62,12 @@ public class CommentServiceImpl implements CommentService {
         if (CommentTypeEnum.COMMENT.getCode().equals(type)) {
             //回复的时评论
             Comment commentById = commentMapper.selectByPrimaryKey(parentId);
+            Question question = questionMapper.selectByPrimaryKey(commentById.getParentId());
             if (null == commentById) {
                 throw new CustomizeException(CustomizeErrorEnums.COMMENT_NOT_FOUND);
+            }
+            if (null == question) {
+                throw new CustomizeException(CustomizeErrorEnums.QUESTION_NOT_FOUND);
             }
             commentMapper.insert(comment);
             /*增加评论的评论数量*/
@@ -72,8 +76,8 @@ public class CommentServiceImpl implements CommentService {
             commentInc.setCommentCount(1L);
             commentExtendMapper.incCommentCount(commentInc);
             //创建通知
-            //todo commentById.getContent() 存在歧义，别人评论了评论是应该获得评论内容，还是我评论的问题的title
-            createNotify(comment, commentById.getCommentator(), commentator.getName(), commentById.getContent(), NotificationEnums.REPLY_COMMENT,commentById.getId());
+            //todo commentById.getContent() 存在歧义，别人评论了评论是应该获得评论内容，还是我评论的问题的title，就某问题品论了评论
+            createNotify(comment, commentById.getCommentator(), commentator.getName(), commentById.getContent(), NotificationEnums.REPLY_COMMENT,question.getId());
         } else {
             //回复问题 可以用于todo
             Question question = questionMapper.selectByPrimaryKey(parentId);
@@ -100,9 +104,10 @@ public class CommentServiceImpl implements CommentService {
      */
     private void createNotify(Comment comment, String receiver, String creator, String outerTitle, NotificationEnums notificationEnums, Long outertId) {
         String commentator = comment.getCommentator();
-        if (StringUtils.isNotBlank(commentator) && commentator.equals(receiver)) {
+        //将下面的if (StringUtils.isNotBlank(commentator) && commentator.equals(receiver)) { 就自己写的评论不会通知自己
+        /*if (StringUtils.isNotBlank(commentator) && commentator.equals(receiver)) {
             return;
-        }
+        }*/
         //通知表的生成
         Notification notification = new Notification();
         notification.setGmtCreate(System.currentTimeMillis());

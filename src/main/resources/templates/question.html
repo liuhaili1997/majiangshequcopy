@@ -50,13 +50,6 @@
                         <span  th:text="${tag}"></span>
                     </span>
                 </div>
-                <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <a th:href="@{'/publish/'+${question.id}}" class="tag-edit"
-                       th:if="${session.user != null && session.user.accountId == question.creator}">
-                        <span class="glyphicon glyphicon-pencil tag-margin" aria-hidden="true">编辑</span>
-                    </a>
-                </div>
             </div>
             <!--回复-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -165,6 +158,16 @@
                         </h6>
 
                     </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                     th:if="${session.user != null && session.user.accountId == question.creator}">
+                    <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
+                    <a th:href="@{'/publish/'+${question.id}}" class="tag-edit">
+                        <span class="glyphicon glyphicon-pencil tag-margin" aria-hidden="true">编辑</span>
+                    </a>
+                    <a th:href="@{'/publish/delete/'+${question.id}}" class="tag-edit">
+                        <span class="glyphicon glyphicon-trash tag-margin" aria-hidden="true">删除</span>
+                    </a>
                 </div>
                 <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
             </div>

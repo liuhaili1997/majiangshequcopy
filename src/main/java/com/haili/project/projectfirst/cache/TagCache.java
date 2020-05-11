@@ -16,18 +16,18 @@ public class TagCache {
     public static List<TagDto> get() {
         List<TagDto> tagDtoList = new ArrayList<>();
         TagDto emotion = new TagDto();
-        emotion.setCategoryName("情感");
-        emotion.setTags(Arrays.asList("生活","感悟","爱情","悲伤","幸福","美好","未来","坚强"));
+        emotion.setCategoryName("大学生活");
+        emotion.setTags(Arrays.asList("情感","办理证件流程","自学的培养","沟通的技巧","如何交友","人性的弱点","考试介绍"));
         tagDtoList.add(emotion);
 
         TagDto program = new TagDto();
-        program.setCategoryName("语言");
-        program.setTags(Arrays.asList("JavaScript","Java","PHP","node.js","typescript","css","python","c"));
+        program.setCategoryName("计算机语言");
+        program.setTags(Arrays.asList("JavaScript","Java","Spring boot","HTML","C++","css","C#","C"));
         tagDtoList.add(program);
 
         TagDto book = new TagDto();
-        book.setCategoryName("书籍");
-        book.setTags(Arrays.asList("红楼梦","三国演义","出师表","登黄鹤楼","假如给我三天光明","三体","完美世界"));
+        book.setCategoryName("相关问题");
+        book.setTags(Arrays.asList("专业性问题","计算机程序异常","代码问题","英语学习","相关书籍的推荐","面试总结"));
         tagDtoList.add(book);
         return tagDtoList;
     }

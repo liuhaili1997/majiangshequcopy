@@ -48,6 +48,9 @@ public class PublishController {
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
         model.addAttribute("tags", TagCache.get());
+        if (null != id) {
+            model.addAttribute("id", id);
+        }
         if (StringUtils.isBlank(title)) {
             model.addAttribute("erro", "标题不能为空");
             return "publish";
@@ -99,5 +102,17 @@ public class PublishController {
         model.addAttribute("id", question.getId());
         model.addAttribute("tags", TagCache.get());
         return "publish";
+    }
+
+    /**
+     * 删除操作
+     *
+     * @param id id
+     * @return 刷新回到主页面
+     */
+    @GetMapping("/publish/delete/{id}")
+    public String delete(@PathVariable(name = "id") Long id) {
+        questionService.delete(id);
+        return "redirect:/";
     }
 }

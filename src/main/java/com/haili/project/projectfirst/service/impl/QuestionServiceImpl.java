@@ -256,4 +256,15 @@ public class QuestionServiceImpl implements QuestionService {
         return questionDtoList;
     }
 
+    @Override
+    public void delete(Long id) {
+        if (null == id) {
+            return;
+        }
+        int i = questionMapper.deleteByPrimaryKey(id);
+        if (i != 1) {
+            throw new CustomizeException(CustomizeErrorEnums.QUESTION_DELETE_IS_FAIL);
+        }
+    }
+
 }

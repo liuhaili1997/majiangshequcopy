@@ -6,6 +6,7 @@ package com.haili.project.projectfirst.enums;
 public enum CustomizeErrorEnums implements InterCustomizeErrorEnums {
     QUESTION_NOT_FOUND(2001,"真可惜，修改的记录已经不在了，试着重新发布一条吧！"),
     QUESTION_RECORD_NOT_IN_TABLE(2002,"你要的我还没有，但我可以拥有，你可以给我吗？"),
+    QUESTION_DELETE_IS_FAIL(2010,"你的问题不存在，删除失败"),
 
     TARGET_PARAM_NOT_FOUND(2003, "你未对任何问题和结论做出回复"),
     TYPE_PARAM_WRONG(2004, "你的类型不正确，不在判断范围内"),

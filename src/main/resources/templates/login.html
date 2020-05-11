@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/projects.css"/>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <SCRIPT src="/js/bootstrap.min.js" type="application/javascript"></SCRIPT>
+<body>
+<div th:insert="navigation :: nav"></div>
+<!--body-->
+<div class="container register-body">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="card" id="registerDiv">
+                <div class="card-body-login">
+                    <h3 class="text-center register-title" id="9df34f1a-5067-1965-c26c-7f3a011dc259">登录</h3>
+                    <form class="form-horizontal" action="/register" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="managerName" class="col-sm-2 control-label">姓名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control register-input" name="managerName"
+                                       th:value="${name}" id="managerName" placeholder="姓名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mima" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="mima" id="mima" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked">
+                                        <div class="text-muted text-center register-agreement">继续即代表同意<a href="#" target="_blank">
+                                            《服务条款》</a>和<a href="#" target="_blank">《隐私政策》</a></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="loginError" th:value="${loginError}">
+                        <div class="col-sm-offset-2 col-sm-12 form-group">
+                            <button type="submit" class="btn btn-success register-btn" onclick="loginVerify()">登录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="footer :: author"></div>
+</body>
+</html>

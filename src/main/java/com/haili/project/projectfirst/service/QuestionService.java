@@ -57,4 +57,11 @@ public interface QuestionService {
      * @return 结果集合
      */
     List<QuestionDto> selectRelated(QuestionDto questionDto);
+
+    /**
+     * 删除问题的操作
+     *
+     * @param id id
+     */
+    void delete(Long id);
 }

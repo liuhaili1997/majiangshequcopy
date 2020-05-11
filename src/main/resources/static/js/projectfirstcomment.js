@@ -171,3 +171,40 @@ function selectTag(e) {
 function showSelectTag() {
     $("#select-tag").show();
 }
+
+/**
+* 回显照片
+* */
+//图片回显:
+function previewImg(file) {
+    $("#imgHidden").css("display", "block");
+    var prevDiv = document.getElementById('preview');
+    if (file.files && file.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(evt) {
+            prevDiv.innerHTML = '<img style="width: 100px;height: 100px;" src="' + evt.target.result + '" />';
+        }
+        reader.readAsDataURL(file.files[0]);
+    } else {
+        prevDiv.innerHTML = '<div class="img" style="width: 100px;height:100px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\'' +
+            file.value + '\'"></div>';
+    }
+}
+
+/*register*/
+/*下面的方法用于提示前端什么没有填写    注册界面*/
+function registerVerify() {
+    var errorInformation = $("#registerError").val();
+    if (errorInformation) {
+        alert(errorInformation);
+        return;
+    }
+}
+/*login*/
+function loginVerify() {
+    var errorInformation = $("#loginError").val();
+    if (errorInformation) {
+        alert(errorInformation);
+        return;
+    }
+}

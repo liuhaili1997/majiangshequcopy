@@ -20,16 +20,16 @@
 </SCRIPT>
 <body>
 <div th:insert="navigation :: nav"></div>
-<div class="container-fluid main">
+<div class="container-fluid main main-index">
     <div class="row">
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
             <h2>
                 <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                 <span class="text-title">首页</span>
             </h2>
             <hr/>
 
-            <div class="media" th:each="question:${questionList.data}">
+            <div class="media col-lg-12 col-md-12 col-sm-12 col-xs-12" th:each="question:${questionList.data}">
                 <div class="media-left">
                     <a href="#">
                         <img class="media-object img-circle user-img"
@@ -40,7 +40,7 @@
                     <h4 class="media-heading">
                         <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>
                     </h4>
-                    <span th:text="${question.description}"></span><br>
+                    <span th:text="${question.description}" class="index-mean"></span><br>
                     <span class="view-comment-count">
                         <span th:text="${question.commentCount}"></span>个回复·
                         <span th:text="${question.viewCount}"></span>次浏览·
@@ -77,9 +77,6 @@
                     </li>
                 </ul>
             </nav>
-        </div>
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>热门</h3>
         </div>
     </div>
 </div>

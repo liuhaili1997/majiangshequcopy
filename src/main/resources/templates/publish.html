@@ -19,7 +19,7 @@
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2>
                 <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
-                <span class="text-title">发起</span>
+                <span class="text-title">发布问题</span>
             </h2>
             <hr/>
 
@@ -34,11 +34,13 @@
                                aria-describedby="basic-addon1">
                     </div>
                 </div>
-                <div class="form-group form-tag" id="question-editor">
+                <div>
                     <label for="description">问题补充（必填：请参照右侧提示）</label>
-                    <textarea name="description" id="description" class="form-control" th: ="${description}"
+                    <div class="form-group form-tag" id="question-editor">
+                    <textarea name="description" id="description" class="form-control" th:text="${description}"
                               style="display: none"
                               placeholder="请详细描述一下您的问题……" cols="30" rows="10"></textarea>
+                    </div>
                 </div>
                 <script type="text/javascript">
                     $(function() {
