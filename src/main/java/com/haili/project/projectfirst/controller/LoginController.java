@@ -101,7 +101,7 @@ public class LoginController {
             return "login";
         }
         /*这里就需要修改user和token了 设置SessionInterceptor中的token的查询，获得用户的信息，但是两个实体类之间是有区别的，要整体的细致观察*/
-        //response.addCookie(new Cookie("token", managers.get(0).getToken()));
+        response.addCookie(new Cookie("token", managers.get(0).getToken()));
         return "redirect:/";
     }
 }

@@ -1,6 +1,9 @@
 package com.haili.project.projectfirst.interceptor;
 
+import com.haili.project.projectfirst.mapper.ManagerMapper;
 import com.haili.project.projectfirst.mapper.UserMapper;
+import com.haili.project.projectfirst.model.Manager;
+import com.haili.project.projectfirst.model.ManagerExample;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.model.UserExample;
 import com.haili.project.projectfirst.service.NotificationService;
@@ -28,6 +31,9 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    private ManagerMapper managerMapper;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         Cookie[] cookies = request.getCookies();
@@ -41,9 +47,24 @@ public class SessionInterceptor implements HandlerInterceptor {
                 userExample.createCriteria()
                         .andTokenEqualTo(token);
                 List<User> userList = userMapper.selectByExample(userExample);
+                ManagerExample example = new ManagerExample();
+                example.createCriteria()
+                        .andTokenEqualTo(token);
+                List<Manager> managerList = managerMapper.selectByExample(example);
                 if (!CollectionUtils.isEmpty(userList)) {
                     request.getSession().setAttribute("user", userList.get(0));
                     Long unReadCount = notificationService.unReadCount(userList.get(0).getAccountId());
+                    request.getSession().setAttribute("unReadNotificationCount", unReadCount);
+                } else if (!CollectionUtils.isEmpty(managerList)) {
+                    Manager manager = managerList.get(0);
+                    User user = new User();
+                    user.setId(manager.getId());
+                    user.setAccountId(manager.getAccountId());
+                    user.setName(manager.getName());
+                    user.setToken(manager.getToken());
+                    user.setAvatar(manager.getAvatar());
+                    request.getSession().setAttribute("user", user);
+                    Long unReadCount = notificationService.unReadCount(user.getAccountId());
                     request.getSession().setAttribute("unReadNotificationCount", unReadCount);
                 }
                 break;

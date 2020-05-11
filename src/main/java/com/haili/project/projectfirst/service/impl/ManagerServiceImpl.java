@@ -44,7 +44,7 @@ public class ManagerServiceImpl implements ManagerService {
             //上传
             String filename = upload(file, uploadDir, file.getOriginalFilename());
             if (StringUtils.isNotBlank(filename)) {
-                imgUrl = new File(uploadDir).getName() + "/" + filename;
+                imgUrl = new StringBuilder("/images/").append(new File(uploadDir).getName()).append("/").append(filename).toString();
             }
             manager.setAvatar(imgUrl);
             manager.setToken(token);

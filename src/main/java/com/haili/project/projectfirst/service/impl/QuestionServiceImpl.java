@@ -5,13 +5,11 @@ import com.haili.project.projectfirst.dto.QuestionDto;
 import com.haili.project.projectfirst.dto.QuestionQueryDto;
 import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
 import com.haili.project.projectfirst.exception.CustomizeException;
+import com.haili.project.projectfirst.mapper.ManagerMapper;
 import com.haili.project.projectfirst.mapper.QuestionExtendMapper;
 import com.haili.project.projectfirst.mapper.QuestionMapper;
 import com.haili.project.projectfirst.mapper.UserMapper;
-import com.haili.project.projectfirst.model.Question;
-import com.haili.project.projectfirst.model.QuestionExample;
-import com.haili.project.projectfirst.model.User;
-import com.haili.project.projectfirst.model.UserExample;
+import com.haili.project.projectfirst.model.*;
 import com.haili.project.projectfirst.service.QuestionService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
@@ -32,6 +30,9 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private ManagerMapper managerMapper;
 
     @Autowired
     private QuestionMapper questionMapper;
@@ -79,7 +80,16 @@ public class QuestionServiceImpl implements QuestionService {
             return new PageInformationDto<>();
         }
         //获取对象集合中的某一个属性生成一个集合
-        List<String> creatorList = questions.stream().map(Question::getCreator).distinct().collect(Collectors.toList());
+        List<String> creatorList = new ArrayList<>();
+        List<String> managerList = new ArrayList<>();
+        for (Question question : questions) {
+            if (question.getCreator().length() <= 8) {
+                creatorList.add(question.getCreator());
+            } else {
+                managerList.add(question.getCreator());
+            }
+
+        }
         UserExample userExample = new UserExample();
         userExample.createCriteria()
                 .andAccountIdIn(creatorList);
@@ -93,6 +103,18 @@ public class QuestionServiceImpl implements QuestionService {
                 avatarMap.put(user.getAccountId(), user.getAvatar());
             }
         }
+        //这里有两个表，优化应该先添加一个type 区分那个表发布的，分开list来获取
+        Map<String, String> managerMap = new HashMap();
+        if (!CollectionUtils.isEmpty(managerList)) {
+            ManagerExample managerExample = new ManagerExample();
+            managerExample.createCriteria()
+                    .andAccountIdIn(managerList);
+            List<Manager> managers = managerMapper.selectByExample(managerExample);
+            if (!CollectionUtils.isEmpty(managers)) {
+                managerMap = managers.stream().collect(Collectors.toMap(Manager::getAccountId, Manager::getAvatar, (oldValue, newValue) -> newValue));
+            }
+        }
+
         QuestionDto questionDto;
         List<QuestionDto> questionDtoList = new ArrayList<>();
         for (Question question : questions) {
@@ -102,10 +124,12 @@ public class QuestionServiceImpl implements QuestionService {
             String avatarUrl = avatarMap.get(question.getCreator());
             if (StringUtils.isNotBlank(avatarUrl)) {
                 questionDto.setAvatarUrl(avatarUrl);
+            } else {
+                String avatar = managerMap.get(question.getCreator());
+                questionDto.setAvatarUrl(avatar);
             }
             questionDtoList.add(questionDto);
         }
-
         pageInformationDto.setData(questionDtoList);
 
         return pageInformationDto;
@@ -192,8 +216,21 @@ public class QuestionServiceImpl implements QuestionService {
         userExample.createCriteria()
                 .andAccountIdEqualTo(questionDto.getCreator());
         List<User> users = userMapper.selectByExample(userExample);
+        ManagerExample managerExample = new ManagerExample();
+        managerExample.createCriteria()
+                .andAccountIdEqualTo(questionDto.getCreator());
+        List<Manager> managers = managerMapper.selectByExample(managerExample);
         if (!CollectionUtils.isEmpty(users)) {
             questionDto.setUser(users.get(0));
+        } else {
+            Manager manager = managers.get(0);
+            User user = new User();
+            user.setId(manager.getId());
+            user.setAccountId(manager.getAccountId());
+            user.setName(manager.getName());
+            user.setToken(manager.getToken());
+            user.setAvatar(manager.getAvatar());
+            questionDto.setUser(user);
         }
         return questionDto;
     }
