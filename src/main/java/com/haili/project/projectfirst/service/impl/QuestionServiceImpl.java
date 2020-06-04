@@ -3,6 +3,7 @@ package com.haili.project.projectfirst.service.impl;
 import com.haili.project.projectfirst.dto.PageInformationDto;
 import com.haili.project.projectfirst.dto.QuestionDto;
 import com.haili.project.projectfirst.dto.QuestionQueryDto;
+import com.haili.project.projectfirst.dto.UserOrManagerDto;
 import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
 import com.haili.project.projectfirst.exception.CustomizeException;
 import com.haili.project.projectfirst.mapper.ManagerMapper;
@@ -11,9 +12,10 @@ import com.haili.project.projectfirst.mapper.QuestionMapper;
 import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.*;
 import com.haili.project.projectfirst.service.QuestionService;
+import com.haili.project.projectfirst.service.UserService;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -23,6 +25,7 @@ import java.util.stream.Collectors;
 
 /**
  * 注解@Service 用于管理整个实现类
+ *
  * @author Created by hailitortoise on 2020-03-26
  */
 @Service
@@ -39,6 +42,9 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
     private QuestionExtendMapper questionExtendMapper;
+
+    @Autowired
+    private UserService userService;
 
     @Override
     public PageInformationDto list(Integer currentPage, Integer pageSize, String search) {
@@ -68,7 +74,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
         //totalPage 总页数
         if (currentPage > totalPage) {
-            currentPage =  totalPage;
+            currentPage = totalPage;
         }
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
@@ -90,19 +96,22 @@ public class QuestionServiceImpl implements QuestionService {
             }
 
         }
-        UserExample userExample = new UserExample();
-        userExample.createCriteria()
-                .andAccountIdIn(creatorList);
-        List<User> userList = userMapper.selectByExample(userExample);
         //通过id获取图片地址
         Map<String, String> avatarMap = new HashMap<>(10);
-        if (!CollectionUtils.isEmpty(userList)) {
-            //以后防止key值相同
-            //avatarMap = userList.stream().collect(Collectors.toMap(User::getId, User::getAvatar, (oldValue, newValue)->newValue));
-            for (User user : userList) {
-                avatarMap.put(user.getAccountId(), user.getAvatar());
+        if (!CollectionUtils.isEmpty(creatorList)) {
+            UserExample userExample = new UserExample();
+            userExample.createCriteria()
+                    .andAccountIdIn(creatorList);
+            List<User> userList = userMapper.selectByExample(userExample);
+            if (!CollectionUtils.isEmpty(userList)) {
+                //以后防止key值相同
+                //avatarMap = userList.stream().collect(Collectors.toMap(User::getId, User::getAvatar, (oldValue, newValue)->newValue));
+                for (User user : userList) {
+                    avatarMap.put(user.getAccountId(), user.getAvatar());
+                }
             }
         }
+
         //这里有两个表，优化应该先添加一个type 区分那个表发布的，分开list来获取
         Map<String, String> managerMap = new HashMap();
         if (!CollectionUtils.isEmpty(managerList)) {
@@ -144,7 +153,7 @@ public class QuestionServiceImpl implements QuestionService {
         QuestionExample example = new QuestionExample();
         example.createCriteria()
                 .andCreatorEqualTo(accountId);
-        Integer total = (int)questionMapper.countByExample(example);
+        Integer total = (int) questionMapper.countByExample(example);
         //获取总页数
         int totalPage;
         if (total % pageSize == 0) {
@@ -159,7 +168,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
         //totalPage 总页数
         if (currentPage > totalPage) {
-            currentPage =  totalPage;
+            currentPage = totalPage;
         }
         pageInformationDto.setPageInformation(total, currentPage, pageSize);
 
@@ -173,16 +182,14 @@ public class QuestionServiceImpl implements QuestionService {
         }
         //获取对象集合中的某一个属性生成一个集合
         List<String> creatorList = questions.stream().map(Question::getCreator).distinct().collect(Collectors.toList());
-        UserExample userExample = new UserExample();
-        userExample.createCriteria()
-                .andAccountIdIn(creatorList);
-        List<User> userList = userMapper.selectByExample(userExample);
+        //重构
+        List<UserOrManagerDto> managerList = userService.getUserInfo(creatorList);
         //通过id获取图片地址
         Map<String, String> avatarMap = new HashMap<>(10);
-        if (!CollectionUtils.isEmpty(userList)) {
+        if (!CollectionUtils.isEmpty(managerList)) {
             //以后防止key值相同
             //avatarMap = userList.stream().collect(Collectors.toMap(User::getId, User::getAvatar, (oldValue, newValue)->newValue));
-            for (User user : userList) {
+            for (UserOrManagerDto user : managerList) {
                 avatarMap.put(user.getAccountId(), user.getAvatar());
             }
         }

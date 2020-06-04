@@ -42,6 +42,7 @@ public class LoginController {
                                   @RequestParam(value = "userPass", required = false) String password,
                                   @RequestParam(value = "file", required = false) MultipartFile file,
                                   @RequestParam(value = "userEmail", required = false) String email,
+                                  @RequestParam(value = "type", required = false) Byte type,
                                   Model model) {
         /*回显*/
         model.addAttribute("name", name);
@@ -68,6 +69,7 @@ public class LoginController {
         manager.setName(name);
         manager.setPassword(password);
         manager.setEmail(email);
+        manager.setType(type);
         managerService.createNewRecord(manager, file);
         return "redirect:/";
     }

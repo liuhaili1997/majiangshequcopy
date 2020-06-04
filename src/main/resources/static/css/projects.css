@@ -214,7 +214,7 @@ body{
     margin: 0 auto;
     min-height: 1px;
     width: 410px;
-    height: 520px;
+    height: 565px;
     background-color: #dcdcdc;
     border-radius: 3px;
 }
@@ -247,4 +247,30 @@ body{
 #imgShow{
     width: 100%;
     height: 100%;
+}
+.register-select {
+    width: 65px;
+    height: 34px;
+    border-radius: 5px;
+}
+
+/*management*/
+.manage-one {
+    background-color: #01a252;
+}
+.manage-two {
+    background-color: #95958a;
+}
+.manage-three {
+    background-color: #ad9361;
+}
+.manage-data {
+    font-size: 28px;
+    margin-right: 4px;
+}
+.manage-mean {
+    text-align: right;
+}
+.table-text-align {
+    text-align-last: center;
 }

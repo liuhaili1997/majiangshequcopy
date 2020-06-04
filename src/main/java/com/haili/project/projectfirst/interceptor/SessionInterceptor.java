@@ -53,6 +53,7 @@ public class SessionInterceptor implements HandlerInterceptor {
                 List<Manager> managerList = managerMapper.selectByExample(example);
                 if (!CollectionUtils.isEmpty(userList)) {
                     request.getSession().setAttribute("user", userList.get(0));
+                    request.getSession().setAttribute("type", "0");
                     Long unReadCount = notificationService.unReadCount(userList.get(0).getAccountId());
                     request.getSession().setAttribute("unReadNotificationCount", unReadCount);
                 } else if (!CollectionUtils.isEmpty(managerList)) {
@@ -64,6 +65,7 @@ public class SessionInterceptor implements HandlerInterceptor {
                     user.setToken(manager.getToken());
                     user.setAvatar(manager.getAvatar());
                     request.getSession().setAttribute("user", user);
+                    request.getSession().setAttribute("type", manager.getType().toString());
                     Long unReadCount = notificationService.unReadCount(user.getAccountId());
                     request.getSession().setAttribute("unReadNotificationCount", unReadCount);
                 }

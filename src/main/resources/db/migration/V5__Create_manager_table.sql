@@ -7,6 +7,7 @@ create table manager
 	email           varchar(128) not null,
 	avatar          varchar(512) not null,
 	token           char(36) not null,
+	TYPE            TINYINT      not null,
 	gmt_create      bigint not null,
 	gmt_modified    bigint not null,
 	constraint manager_pk
@@ -24,6 +25,8 @@ comment on column manager.email is '邮箱';
 comment on column manager.avatar is '图片位置';
 
 comment on column manager.token is '唯一标识';
+
+comment on column MANAGER.TYPE is '0:游客 1:学生 2:教师  3:管理员';
 
 comment on column manager.gmt_create is '创建时间';
 

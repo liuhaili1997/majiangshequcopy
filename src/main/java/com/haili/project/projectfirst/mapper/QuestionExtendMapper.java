@@ -4,6 +4,7 @@ import com.haili.project.projectfirst.dto.QuestionQueryDto;
 import com.haili.project.projectfirst.model.Question;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 有些方法可以单独写在这里防止运行mvn命令丢失

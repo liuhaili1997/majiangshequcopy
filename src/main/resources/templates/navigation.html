@@ -41,6 +41,10 @@
                     <button type="submit" class="btn btn-default">搜索</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
+                    <!--超级管理员才有资格显示-->
+                    <li th:if="${session.user != null && session.type =='3'}">
+                        <a href="/management">用户管理</a>
+                    </li>
                     <li th:if="${session.user != null}">
                         <a href="/publish">分享</a>
                     </li>

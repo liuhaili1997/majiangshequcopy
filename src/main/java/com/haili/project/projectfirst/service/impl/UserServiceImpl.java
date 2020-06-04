@@ -1,17 +1,24 @@
 package com.haili.project.projectfirst.service.impl;
 
+import com.haili.project.projectfirst.dto.UserOrManagerDto;
 import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
 import com.haili.project.projectfirst.exception.CustomizeException;
+import com.haili.project.projectfirst.mapper.ManagerMapper;
 import com.haili.project.projectfirst.mapper.UserMapper;
+import com.haili.project.projectfirst.model.ManagerExample;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.model.UserExample;
 import com.haili.project.projectfirst.service.UserService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 实现类
@@ -22,6 +29,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private ManagerMapper managerMapper;
 
     @Override
     public void createOrUpdateUser(User user) {
@@ -53,5 +63,31 @@ public class UserServiceImpl implements UserService {
                 throw new CustomizeException(CustomizeErrorEnums.QUESTION_NOT_FOUND);
             }
         }
+    }
+
+    @Override
+    public List<UserOrManagerDto> getUserInfo(List<String> creatorList) {
+        ManagerExample managerExample = new ManagerExample();
+        managerExample.createCriteria()
+                .andAccountIdIn(creatorList);
+        List<UserOrManagerDto> managerList = managerMapper.selectByExample(managerExample)
+                .stream().map(p -> {
+                    UserOrManagerDto userOrManagerDto = new UserOrManagerDto();
+                    BeanUtils.copyProperties(p, userOrManagerDto);
+                    return userOrManagerDto;
+                })
+                .collect(Collectors.toList());
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andAccountIdIn(creatorList);
+        managerList.addAll(userMapper.selectByExample(userExample)
+                .stream().map(p -> {
+                    UserOrManagerDto userOrManagerDto = new UserOrManagerDto();
+                    BeanUtils.copyProperties(p, userOrManagerDto);
+                    return userOrManagerDto;
+                })
+                .collect(Collectors.toList()));
+
+        return managerList;
     }
 }

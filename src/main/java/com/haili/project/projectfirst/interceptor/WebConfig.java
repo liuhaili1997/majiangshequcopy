@@ -2,8 +2,8 @@ package com.haili.project.projectfirst.interceptor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -25,5 +25,16 @@ public class WebConfig implements WebMvcConfigurer {
          * excludePathPatterns("/admin/**") 忽略那些地址，不做拦截
          */
         registry.addInterceptor(sessionInterceptor).addPathPatterns("/**");
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        String filePath = System.getProperty("user.dir")+"\\src\\main\\resources\\static\\images\\avatar\\";
+        String os = System.getProperty("os.name");
+        if(os.toLowerCase().startsWith("win")){
+            registry.addResourceHandler("/images/avatar/**")
+                    .addResourceLocations("file:"+filePath);
+        }
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 }

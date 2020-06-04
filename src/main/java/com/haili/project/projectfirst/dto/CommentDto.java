@@ -58,6 +58,6 @@ public class CommentDto {
     /**
      * 用户信息
      */
-    private User user;
+    private UserOrManagerDto user;
 
 }

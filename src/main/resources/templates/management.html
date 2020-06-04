@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>人员管理</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/projects.css"/>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <SCRIPT src="/js/bootstrap.min.js" type="application/javascript"></SCRIPT>
+</head>
+<body>
+<div th:insert="navigation :: nav"></div>
+<div class="container-fluid main main-index">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+            <h2>
+                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                <span class="text-title">用户管理</span>
+            </h2>
+            <hr/>
+            <div class="media col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail manage-one">
+                            <div class="caption">
+                                <h3>总文章数</h3>
+                                <p class="manage-mean"><span class="manage-data" th:text="${sumOfQuestion}"></span>篇</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail manage-two">
+                            <div class="caption">
+                                <h3>当天文章数</h3>
+                                <p class="manage-mean"><span class="manage-data" th:text="${questionsOfToday}"></span>篇</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail manage-three">
+                            <div class="caption">
+                                <h3>当前用户数</h3>
+                                <p class="manage-mean"><span class="manage-data" th:text="${sumOfUser}"></span>人</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <h4>本地用户：</h4>
+                    <table class="table table-bordered table-text-align">
+                        <tr>
+                            <th>用户名</th>
+                            <th>账户</th>
+                            <th>账户类型</th>
+                            <th>注册时间</th>
+                            <th>分享次数</th>
+                            <th>评论次数</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr th:each="gitUser:${table2}">
+                            <td th:text="${gitUser.getName()}">1</td>
+                            <td th:text="${gitUser.getAccountId()}">2</td>
+                            <td th:text="${gitUser.getType()}">3</td>
+                            <td th:text="${gitUser.getRegisterTime()}">4</td>
+                            <td th:text="${gitUser.getPublishCount()}">5</td>
+                            <td th:text="${gitUser.getCommentCount()}">6</td>
+                            <td><a th:href="@{'/management/delete/'+ ${gitUser.getId()}}"><span th:text="${gitUser.getOperator()}"></span></a></td>
+                        </tr>
+                    </table>
+
+                </div>
+                <hr/>
+                <div class="row">
+                    <h4>第三方授权用户：</h4>
+                    <table class="table table-bordered table-text-align">
+                        <tr>
+                            <th>用户名</th>
+                            <th>账户</th>
+                            <th>账户类型</th>
+                            <th>注册时间</th>
+                            <th>分享次数</th>
+                            <th>评论次数</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr th:each="gitUser:${table1}">
+                            <td th:text="${gitUser.getName()}">1</td>
+                            <td th:text="${gitUser.getAccountId()}">2</td>
+                            <td th:text="${gitUser.getType()}">3</td>
+                            <td th:text="${gitUser.getRegisterTime()}">4</td>
+                            <td th:text="${gitUser.getPublishCount()}">5</td>
+                            <td th:text="${gitUser.getCommentCount()}">6</td>
+                            <td><a href="#"><span th:text="${gitUser.getOperator()}"></span></a></td>
+                        </tr>
+                    </table>
+                </div>
+                <hr/>
+                <div class="row">
+                    <h4>管理员：</h4>
+                    <table class="table table-bordered table-text-align">
+                        <tr>
+                            <th>用户名</th>
+                            <th>账户</th>
+                            <th>账户类型</th>
+                            <th>注册时间</th>
+                            <th>分享次数</th>
+                            <th>评论次数</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr th:each="gitUser:${table3}">
+                            <td th:text="${gitUser.getName()}">1</td>
+                            <td th:text="${gitUser.getAccountId()}">2</td>
+                            <td th:text="${gitUser.getType()}">3</td>
+                            <td th:text="${gitUser.getRegisterTime()}">4</td>
+                            <td th:text="${gitUser.getPublishCount()}">5</td>
+                            <td th:text="${gitUser.getCommentCount()}">6</td>
+                            <td><a href="#"><span th:text="${gitUser.getOperator()}"></span></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="footer :: author"></div>
+</body>
+</html>

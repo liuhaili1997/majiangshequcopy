@@ -26,7 +26,7 @@ public class ManagerServiceImpl implements ManagerService {
     public Integer createNewRecord(Manager manager, MultipartFile file) {
         // 图片路径
         String imgUrl = null;
-        String uploadDir = "C://Users//lhl03//Videos//git//repository//projectfirst//src//main//resources//static//images//avatar/";
+        String uploadDir = "D://maven//myself//majiangshequcopy//src//main//resources//static//images//avatar/";
         //生成token
         String token = UUID.randomUUID().toString();
         // 根据时间生成唯一的id

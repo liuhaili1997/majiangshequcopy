@@ -1,9 +1,6 @@
 package com.haili.project.projectfirst.controller;
 
-import com.haili.project.projectfirst.dto.NotificationDto;
 import com.haili.project.projectfirst.dto.PageInformationDto;
-import com.haili.project.projectfirst.enums.PersonEnum;
-import com.haili.project.projectfirst.mapper.UserMapper;
 import com.haili.project.projectfirst.model.User;
 import com.haili.project.projectfirst.service.NotificationService;
 import com.haili.project.projectfirst.service.QuestionService;
@@ -32,6 +29,16 @@ public class PersonSpaceController {
 
     ///{action}:动态的切换路径来做这个内容和样式的替换
 
+    /**
+     * 根据动作显示不同的界面，显示当前页面，把其他的隐藏
+     *
+     * @param action      动作
+     * @param model       model
+     * @param currentPage 当前页数
+     * @param pageSize    每页尺寸大小
+     * @param request     请求
+     * @return 返回一个对应的页面
+     */
     @GetMapping("/profile/{action}")
     public String profile(@PathVariable(name = "action") String action, Model model,
                           @RequestParam(name = "page", defaultValue = "1") Integer currentPage,

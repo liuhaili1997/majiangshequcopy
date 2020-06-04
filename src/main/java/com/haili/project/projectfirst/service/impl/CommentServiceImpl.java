@@ -1,6 +1,7 @@
 package com.haili.project.projectfirst.service.impl;
 
 import com.haili.project.projectfirst.dto.CommentDto;
+import com.haili.project.projectfirst.dto.UserOrManagerDto;
 import com.haili.project.projectfirst.enums.CommentTypeEnum;
 import com.haili.project.projectfirst.enums.CustomizeErrorEnums;
 import com.haili.project.projectfirst.enums.NotificationEnums;
@@ -9,6 +10,7 @@ import com.haili.project.projectfirst.exception.CustomizeException;
 import com.haili.project.projectfirst.mapper.*;
 import com.haili.project.projectfirst.model.*;
 import com.haili.project.projectfirst.service.CommentService;
+import com.haili.project.projectfirst.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,9 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private NotificationMapper notificationMapper;
+
+    @Autowired
+    private UserService userService;
 
 
     @Override
@@ -140,11 +145,8 @@ public class CommentServiceImpl implements CommentService {
         }
         //获取评论人的accountId，并查询对应的user 转换为Map 简化for循环 n*n ->n*1
         List<String> accountIds = comments.stream().map(Comment::getCommentator).distinct().collect(Collectors.toList());
-        UserExample userExample = new UserExample();
-        userExample.createCriteria()
-                .andAccountIdIn(accountIds);
-        List<User> users = userMapper.selectByExample(userExample);
-        Map<String, User> userMap = users.stream().collect(Collectors.toMap(User::getAccountId, Function.identity(), (oldValue, newValue) -> newValue));
+        List<UserOrManagerDto> userInfo = userService.getUserInfo(accountIds);
+        Map<String, UserOrManagerDto> userMap = userInfo.stream().collect(Collectors.toMap(UserOrManagerDto::getAccountId, Function.identity(), (oldValue, newValue) -> newValue));
         //使用流操作对集合进行字段的整合
         List<CommentDto> commentDtoList = comments.stream().map(comment -> {
             CommentDto commentDto = new CommentDto();

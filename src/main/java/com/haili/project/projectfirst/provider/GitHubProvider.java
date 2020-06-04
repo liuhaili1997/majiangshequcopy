@@ -7,6 +7,9 @@ import okhttp3.*;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -26,9 +29,14 @@ public class GitHubProvider {
                 .readTimeout(60000, TimeUnit.MILLISECONDS)
                 .build();
         //建议使用get获取token，post请求无法找到页面，出现404 直接这样使用get是成功的
-        String url = new StringBuilder("https://github.com/login/oauth/access_token?client_id=").append(accessTokenDto.getClientId())
-                .append("&client_secret=").append(accessTokenDto.getClientSecret()).append("&code=").append(accessTokenDto.getCode())
-                .append("&redirect_uri=").append(accessTokenDto.getRedirectUri()).toString();
+        String url = new StringBuilder("https://github.com/login/oauth/access_token?client_id=")
+                .append(accessTokenDto.getClientId())
+                .append("&client_secret=")
+                .append(accessTokenDto.getClientSecret())
+                .append("&code=")
+                .append(accessTokenDto.getCode())
+                .append("&redirect_uri=")
+                .append(accessTokenDto.getRedirectUri()).toString();
         Request request = new Request.Builder().url(url).build();
         try (Response response = client.newCall(request).execute()) {
             String string = response.body().string();
